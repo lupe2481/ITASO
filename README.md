@@ -16,3 +16,9 @@ GitHub Actions publica el contenido de `dist` en GitHub Pages al actualizar `mai
 Consulta [las instrucciones completas](LEEME.md) para controles e integración en otra página.
 
 Los gráficos y fuentes se incluyen para este proyecto; este repositorio no concede una licencia adicional de redistribución de esos recursos.
+
+### Un día de decisiones
+
+https://lupe2481.github.io/ITASO/decisiones/
+
+Tercer juego: 21 preguntas para una semana, barra de bienestar, cierre diario e historial guardado en el navegador. Abre `dist/decisiones/index.html` para jugar localmente. Pruebas: `node tests/decisiones.cjs`.

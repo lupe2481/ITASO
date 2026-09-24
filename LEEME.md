@@ -60,3 +60,20 @@ Abre `dist/sopa/index.html` o visita https://lupe2481.github.io/ITASO/sopa/.
 ### Pesos de lectura
 
 Ambos juegos incluyen Avenir Next Ultra Light (275), Regular (400) y Bold (700). Las ayudas usan Ultra Light; las descripciones y explicaciones, Regular; la navegación, botones, etiquetas y puntuaciones en Avenir, Bold. Hansol se conserva en los títulos. Las fuentes se cargan desde archivos incluidos, sin depender de las instaladas en el dispositivo.
+
+## Tercer juego: Un día de decisiones
+
+Abre `dist/decisiones/index.html` en Safari u otro navegador, o visita https://lupe2481.github.io/ITASO/decisiones/.
+
+- Una semana simulada de lunes a domingo, con 21 situaciones: una para Mañana, Tarde y Noche cada día.
+- Cada situación ofrece tres opciones. La barra comienza en 50 cada día; cada elección suma 15, resta 5 o resta 15 puntos y muestra una explicación. Es una regla educativa, no una medición de salud real.
+- Los botones de momento del día permiten explorar las preguntas. Cada una se responde una sola vez; después se puede consultar la elección. «Continuar» lleva al siguiente momento pendiente.
+- Al completar los tres momentos se muestra el final del día, el resultado, cómo se sintió el personaje en la historia y las tres elecciones. El botón siguiente abre el próximo día.
+- El historial semanal muestra solo decisiones reales. Los días pendientes aparecen sin decisiones y las explicaciones se pueden desplegar con «Por qué».
+- Se guarda únicamente el progreso de este juego en localStorage, dentro de este navegador. Si el almacenamiento no está disponible, se avisa y el juego sigue funcionando durante esa visita. Los distintos dispositivos, navegadores y versiones local/publicada no comparten progreso.
+- «Empezar otra semana» pide confirmación antes de borrar el progreso de este juego.
+- Fondos e ilustraciones originales: carpeta `decisiones` proporcionada. Hansol y Avenir Next Ultra Light, Regular y Bold se comparten con los otros juegos.
+- Las referencias educativas de OMS, CDC y ADA están en «Descubre más». No se envían las elecciones a ningún servidor.
+- Pruebas del motor y persistencia: `node tests/decisiones.cjs`.
+
+Para integrarlo, usa un iframe con `src="/ITASO/decisiones/"`, título «Un día de decisiones» y una altura suficiente (por ejemplo, 900px), ajustando la ruta al servidor.
