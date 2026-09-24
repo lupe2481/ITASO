@@ -18,3 +18,20 @@
 }
 @media(min-width:701px) and (max-height:700px){.play-view{padding-top:14px}.question-card{padding:12px 16px}.question-card h1{font-size:28px;margin-bottom:7px}.question-card>p:last-child{font-size:16px}.options{margin-top:9px;gap:8px}.option{font-size:16px;padding:8px 12px;min-height:38px}.score-rules{font-size:12px;padding:6px 10px;margin-top:8px}.week-shortcuts{margin-top:12px}.feedback{margin-top:10px;padding:10px 13px}.feedback p{font-size:14px}.feedback h2{font-size:16px}.day-button{font-size:22px}.history-card{padding:14px 18px}.history-period{padding:9px 12px}.history-period h2{font-size:20px}.history-card h1{font-size:32px}.history-period p{font-size:14px}.end-card{padding:16px 24px}.end-face{width:34px}.end-card h1{font-size:30px}}
 @media(min-width:701px) and (max-height:700px){.history-view{padding-top:12px;padding-bottom:12px}.history-navigation{gap:6px}.history-navigation nav{gap:6px}.history-navigation .day-tile{height:38px;width:56px;font-size:30px}.history-day{font-size:22px;padding:4px}.history-day small{font-size:10px}.week-total{padding:5px 10px;font-size:13px}.history-navigation>.pink,.history-navigation>.text-button{font-size:14px;padding:6px 12px}.history-period{margin-bottom:9px}.history-status{margin-bottom:9px}}
+/* Distribute the game across taller desktop viewports instead of leaving a blank footer. */
+@media(min-width:701px) and (min-height:701px){
+.decision-column{min-height:calc(100svh - var(--nav-height) - 36px);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.decision-column>.question-card,.decision-column>.score-rules,.decision-column>.options,.decision-column>.feedback,.decision-column>.week-shortcuts{flex-shrink:0}
+.decision-column>.score-rules,.decision-column>.feedback{margin-top:0}
+.decision-column>.options{margin:0 auto;gap:clamp(12px,1.8vh,22px)}
+.options:not(.answered) .option{min-height:clamp(46px,6.6vh,74px)}
+.decision-column>.week-shortcuts{margin:0 auto}
+}
+@media(min-width:701px) and (min-height:701px){
+.decision-column{height:calc(100svh - var(--nav-height) - 36px);justify-content:flex-start}
+.decision-column>.options:not(.answered){flex:1 0 auto;display:flex;flex-direction:column;justify-content:space-evenly}
+.options:not(.answered) .option{font-size:clamp(17px,1.5vw,22px);padding:12px 16px}
+.decision-column>.week-shortcuts{margin-top:auto}
+.decision-column>.feedback{flex-grow:1;display:flex;flex-direction:column;justify-content:center}
+.feedback .pink{align-self:flex-start}
+}
