@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Llena tu canasta · Itaso</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="nav"><a href="../index.html" aria-label="Itaso, inicio"><img src="assets/itaso-logo.svg" alt="Itaso mx"></a><nav aria-label="Principal"><a href="../index.html">Inicio</a><a href="https://www.imss.gob.mx/node/84301" target="_blank" rel="noopener noreferrer">Aprende ↗</a><details class="games-menu"><summary>Juegos</summary><div><a href="../index.html">Reacción rápida</a><a href="../sopa/index.html">Sopa de letras</a><a href="../decisiones/index.html">Un día de decisiones</a><a href="index.html" aria-current="page">Llena tu canasta</a></div></details></nav></header>
+<main id="juego" class="scene">
+<img class="floor" src="assets/piso.svg" alt="">
+<div id="field" class="field" tabindex="-1" aria-label="Zona de juego. Usa las flechas izquierda y derecha o arrastra la canasta."><img id="basket" class="basket" src="assets/canasta.svg" alt="Canasta"></div>
+<aside class="hud" aria-label="Progreso de la partida"><div id="timer" class="timer" aria-label="Tiempo restante">00:30</div><div class="plate-card"><p>Consigue llenar el plato del buen comer antes de que se acabe el tiempo.</p><div class="plate-wrap"><img src="assets/plato.svg" alt="Plato del Bien Comer"><svg class="progress-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" id="ring"/></svg></div></div><div class="completion"><strong id="percent">0%</strong><span>completo</span></div></aside>
+<div id="catch-message" class="catch-message" role="status" aria-live="polite"></div>
+<aside id="tip" class="tip" hidden><img src="assets/mascota.svg" alt="Mascota Itaso"><p id="tip-text"></p></aside>
+<div id="intro" class="overlay"><section class="intro panel" aria-labelledby="intro-title"><div class="intro-copy"><h1 id="intro-title">Llena tu canasta</h1><p class="lead">Atrapa los alimentos y bebidas que elegirías para comer y consigue llenar el plato del buen comer antes de que se acabe el tiempo. Tienes <b>30 segundos.</b></p><p>Para jugar, mueve la canasta con las flechas <b>← →</b>. En tu celular, arrástrala a los lados.</p><p class="rules">Cada alimento suma 10 puntos y uno nuevo suma 5 extra. El agua suma 5; el refresco no suma. ¡Busca variedad!</p><button id="start" class="button">Empezar</button></div><div class="intro-visual"><img class="intro-plate" src="assets/plato.svg" alt="Plato del Bien Comer: combina distintos grupos"><img class="arrows" src="assets/flechas.svg" alt="Flechas izquierda y derecha"></div></section></div>
+<div id="results" class="overlay" hidden><section class="results panel" aria-labelledby="results-title"><h1 id="results-title" tabindex="-1">¡Se acabó el tiempo!</h1><p id="score" class="score"></p><div class="results-grid"><div><h2>¿Qué atrapaste?</h2><p class="hint">Toca una barra para ver tus alimentos.</p><div id="bars"></div></div><aside class="explanation"><h2 id="detail-title">¿Qué nos dicen tus elecciones?</h2><p id="summary"></p><div id="food-list"></div><p id="advice"></p><button id="show-summary" class="summary-button" hidden>← Ver resumen general</button><small>La meta y los puntos son una dinámica de juego; no son porciones ni una evaluación de tu alimentación.</small></aside></div><div class="actions"><button id="discover" class="button">Descubre más</button><button id="restart" class="button">Volver a jugar</button></div></section></div>
+<div id="learn" class="overlay learn-screen" hidden>
+<section class="learn-content" aria-labelledby="learn-title">
+<p class="eyebrow">DEL JUEGO A TU DÍA A DÍA</p>
+<h1 id="learn-title" tabindex="-1">Un plato con variedad</h1>
+<p class="learn-intro">Combina alimentos de distintos grupos. Da más espacio a verduras y frutas, elige cereales integrales e incluye leguminosas con frecuencia.</p>
+<div class="learn-grid">
+<article><img src="assets/comida/verdura-8.svg" alt=""><h2>Verduras y frutas</h2><p>Prueba distintos colores y prefiere fruta entera. Para la escuela: pepino y manzana en trozos.</p></article>
+<article><img src="assets/comida/cereal-3.svg" alt=""><h2>Cereales y tubérculos</h2><p>Dan energía. Prefiere versiones integrales, como pan integral para tu sándwich.</p></article>
+<article><img src="assets/comida/legumbre-4.svg" alt=""><h2>Leguminosas</h2><p>Frijoles, lentejas y habas aportan fibra y proteína vegetal. Combínalos con verduras.</p></article>
+<article><img src="assets/comida/animal-1.svg" alt=""><h2>Origen animal</h2><p>Alterna huevo, pescado y otras opciones. Prefiere preparaciones asadas o a la plancha.</p></article>
+<article><img src="assets/comida/fruta-aceite-2.svg" alt=""><h2>Grasas saludables</h2><p>Incluye pequeñas cantidades. Prueba aguacate sobre una tostada con frijoles.</p></article>
+<article><img src="assets/comida/sano-9.svg" alt=""><h2>Para acompañar</h2><p>Elige agua simple, limita refrescos y revisa los sellos de los productos envasados.</p></article>
+</div>
+<p class="learn-source">Conoce más en la guía del Plato del Bien Comer del Instituto Mexicano del Seguro Social.</p>
+<div class="actions"><button id="back-results" class="button secondary">← Volver a mis resultados</button><a class="button" href="https://www.imss.gob.mx/node/84301" target="_blank" rel="noopener noreferrer">Visitar sitio oficial del IMSS ↗</a></div>
+</section></div>
+</main><script src="game.js"></script></body></html>
