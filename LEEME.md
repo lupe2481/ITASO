@@ -66,7 +66,7 @@ Ambos juegos incluyen Avenir Next Ultra Light (275), Regular (400) y Bold (700).
 Abre `dist/decisiones/index.html` en Safari u otro navegador, o visita https://lupe2481.github.io/ITASO/decisiones/.
 
 - Una semana simulada de lunes a domingo, con 21 situaciones: una para Mañana, Tarde y Noche cada día.
-- Cada situación ofrece tres opciones. La barra comienza en 50 cada día; cada elección suma 15, resta 5 o resta 15 puntos y muestra una explicación. Es una regla educativa, no una medición de salud real.
+- Cada situación ofrece tres opciones. La barra comienza en 0 cada día; cada elección suma 15, resta 5 o resta 15 puntos y muestra una explicación. El total diario va de −45 a +45 y el 0 está marcado en el centro: los puntos positivos suben y los negativos bajan. El historial incluye puntos por decisión, totales diarios y total semanal. Es una regla educativa, no una medición de salud real.
 - Los botones de momento del día permiten explorar las preguntas. Cada una se responde una sola vez; después se puede consultar la elección. «Continuar» lleva al siguiente momento pendiente.
 - Al completar los tres momentos se muestra el final del día, el resultado, cómo se sintió el personaje en la historia y las tres elecciones. El botón siguiente abre el próximo día.
 - El historial semanal muestra solo decisiones reales. Los días pendientes aparecen sin decisiones y las explicaciones se pueden desplegar con «Por qué».

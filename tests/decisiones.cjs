@@ -5,14 +5,14 @@ for(const row of D.questions){assert.equal(row.length,3);for(const q of row){ass
 for(const mode of ['best','worst','mixed']){
  let state=E.fresh();
  for(let d=0;d<7;d++){
-  assert.equal(E.activeDay(state),d);assert.equal(E.score(state,d),50);
+  assert.equal(E.activeDay(state),d);assert.equal(E.score(state,d),0);
   assert.equal(E.choose(state,d+1,0,0),null);
   for(const p of [2,0,1]){
    const choices=D.questions[d][p].options;const i=mode==='mixed'?p:choices.findIndex(o=>o.points===(mode==='best'?15:-15));
    assert.ok(E.choose(state,d,p,i));const before=JSON.stringify(state);assert.equal(E.choose(state,d,p,(i+1)%3),null);assert.equal(JSON.stringify(state),before);
    assert.deepEqual(E.restore(JSON.stringify(state)),state);state=E.restore(JSON.stringify(state));
   }
-  assert.equal(E.completed(state,d),true);if(mode==='best')assert.equal(E.score(state,d),95);if(mode==='worst')assert.equal(E.score(state,d),5);
+  assert.equal(E.completed(state,d),true);if(mode==='best')assert.equal(E.score(state,d),45);if(mode==='worst')assert.equal(E.score(state,d),-45);
  }
  assert.ok(state.days.every((_,d)=>E.completed(state,d)));
  assert.equal(E.choose(state,6,2,0),null);
@@ -21,3 +21,5 @@ for(const raw of ['{','null','{}',JSON.stringify({version:2,days:[]}),JSON.strin
 const future=E.fresh();future.days[1][0]=1;assert.deepEqual(E.restore(JSON.stringify(future)),E.fresh());
 assert.equal(E.choose(E.fresh(),0,0,NaN),null);
 console.log('PASS: 21 questions, 3 full-week paths, out-of-order periods, duplicate protection, scores and persistence validation.');
+
+const riseFall=E.fresh();E.choose(riseFall,0,0,0);assert.equal(E.score(riseFall,0),15);E.choose(riseFall,0,1,0);assert.equal(E.score(riseFall,0),0);E.choose(riseFall,0,2,1);assert.equal(E.score(riseFall,0),-5);assert.equal(E.score(riseFall,1),0);assert.equal(E.score(E.restore(JSON.stringify(riseFall)),0),-5);
