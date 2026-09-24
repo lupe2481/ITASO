@@ -14,7 +14,7 @@ La navegación de esta entrega incluye Inicio, Aprende y Juegos. Las rutas de No
 
 ## Mecánica
 
-- Partidas de 30 segundos reales. Cambiar de pestaña no añade tiempo.
+- Partidas de 30 segundos de juego activo. El botón Pausa, cambiar de pestaña o salir de la ventana detienen el cronómetro y los alimentos. Al volver, pulsa Continuar jugando; no se reanuda automáticamente.
 - Flechas izquierda/derecha; arrastre o toque en móviles.
 - 10 puntos por alimento; 5 extra la primera vez que aparece ese alimento en tu canasta. Agua: 5 puntos. Refresco: 0 puntos.
 - Meta didáctica: 6 verduras/frutas (50% del avance), 3 cereales (25%), 2 leguminosas (15%), 1 alimento de origen animal (5%) y 1 grasa saludable (5%). Cada categoría tiene un máximo: repetir un grupo no llena los demás. Estos conteos y pesos son reglas del juego, no porciones recomendadas.

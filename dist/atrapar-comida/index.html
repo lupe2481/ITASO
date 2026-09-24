@@ -4,6 +4,7 @@
 <body>
 <header class="nav"><a href="../index.html" aria-label="Itaso, inicio"><img src="assets/itaso-logo.svg" alt="Itaso mx"></a><nav aria-label="Principal"><a href="../index.html">Inicio</a><a href="https://www.imss.gob.mx/node/84301" target="_blank" rel="noopener noreferrer">Aprende ↗</a><details class="games-menu"><summary>Juegos</summary><div><a href="../index.html">Reacción rápida</a><a href="../sopa/index.html">Sopa de letras</a><a href="../decisiones/index.html">Un día de decisiones</a><a href="index.html" aria-current="page">Llena tu canasta</a></div></details></nav></header>
 <main id="juego" class="scene">
+<button id="pause" class="button pause-control" aria-haspopup="dialog" aria-controls="pause-dialog" hidden><span aria-hidden="true">Ⅱ</span> Pausa</button>
 <img class="floor" src="assets/piso.svg" alt="">
 <div id="field" class="field" tabindex="-1" aria-label="Zona de juego. Usa las flechas izquierda y derecha o arrastra la canasta."><img id="basket" class="basket" src="assets/canasta.svg" alt="Canasta"></div>
 <aside class="hud" aria-label="Progreso de la partida"><div id="timer" class="timer" aria-label="Tiempo restante">00:30</div><div class="plate-card"><p>Consigue llenar el plato del buen comer antes de que se acabe el tiempo.</p><div class="plate-wrap"><img src="assets/plato.svg" alt="Plato del Bien Comer"><svg class="progress-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" id="ring"/></svg></div></div><div class="completion"><strong id="percent">0%</strong><span>completo</span></div></aside>
@@ -27,4 +28,10 @@
 <p class="learn-source">Conoce más en la guía del Plato del Bien Comer del Instituto Mexicano del Seguro Social.</p>
 <div class="actions"><button id="back-results" class="button secondary">← Volver a mis resultados</button><a class="button" href="https://www.imss.gob.mx/node/84301" target="_blank" rel="noopener noreferrer">Visitar sitio oficial del IMSS ↗</a></div>
 </section></div>
+<dialog id="pause-dialog" class="pause-dialog" aria-labelledby="pause-title" aria-describedby="pause-description">
+<h2 id="pause-title">¡Una pequeña pausa!</h2>
+<p id="pause-description">Tu canasta y el tiempo están en pausa. Continúa cuando estés listo.</p>
+<p class="pause-remaining">Tiempo restante <strong id="pause-time">00:30</strong></p>
+<button id="resume" class="button">Continuar jugando</button>
+</dialog>
 </main><script src="game.js"></script></body></html>
