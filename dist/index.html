@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reacción rápida · Itaso</title>
+<meta name="description" content="Elige bien lo que comes y atrápalo rápido. Un juego para dos personas, una mesa y 30 segundos.">
+<link rel="icon" href="assets/tab.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/Hansol.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/Avenir%20Next.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><img class="logo" src="assets/logo.svg" alt="Itaso mx" width="144" height="48"><nav aria-label="Navegación principal"><span data-nav="inicio">Inicio</span><button class="nav-link" id="learn-nav">Aprende</button><a href="#juego" aria-current="page">Juegos</a><span data-nav="nosotros">Nosotros</span><span data-nav="comunidad">Comunidad</span><span class="login" data-nav="sesion">Iniciar sesión</span></nav></header>
+<main id="juego" tabindex="-1">
+<section class="game-board" aria-label="Juego de reacción rápida">
+<img class="mat art" src="assets/mantel.svg" alt="">
+<img class="plate art" src="assets/plato.svg" alt="">
+<aside class="instructions"><strong>Elige bien lo que comes y atrápalo ¡rápido!</strong><p>Recuerden que saber tomar buenas decisiones para cuidar su salud es importante.</p><div class="rules"><span>Saludables <b>+10</b></span><span>Ocasionales <b>−5</b></span></div></aside>
+<div class="player player-one"><h2>JUGADOR 1</h2><p><span id="score-0">0</span> pts</p></div>
+<div class="player player-two"><h2>JUGADOR 2</h2><p><span id="score-1">0</span> pts</p></div>
+<img id="hand-0" class="hand hand-one art" src="assets/jugador-1.svg" alt="">
+<img id="hand-1" class="hand hand-two art" src="assets/jugador-2.svg" alt="">
+<div class="food-slot" id="food-slot" hidden><img id="food-image" alt=""><span id="food-name"></span></div>
+<div class="start-card" id="start-card"><h1>Reacción<br>rápida</h1><p>Dos jugadores. Un plato.<br>¡30 segundos para elegir bien!</p><button class="pink" id="start" disabled>Cargando…</button><small>Tab · Jugador 1 &nbsp; | &nbsp; Enter · Jugador 2</small></div>
+<div class="countdown" id="countdown" aria-live="assertive" hidden></div>
+<p class="feedback" id="feedback" aria-live="polite"></p>
+<button class="catch catch-one" id="catch-0" aria-label="Atrapar para Jugador 1, tecla Tab" disabled><img src="assets/tab.svg" alt=""><span>Tab</span></button>
+<button class="catch catch-two" id="catch-1" aria-label="Atrapar para Jugador 2, tecla Enter" disabled><img src="assets/enter.svg" alt=""><span>Enter</span></button>
+<div class="timer" role="timer" aria-label="Tiempo restante"><span id="timer">00:30</span></div>
+<button class="pause" id="pause" hidden>Pausar</button>
+</section>
+<section id="results" class="results" aria-labelledby="winner" hidden>
+<h1 id="winner" tabindex="-1"></h1><div class="result-columns" id="result-columns"></div>
+<p class="tip" id="tip">La fruta entera conserva fibra, que ayuda a sentirse satisfecho por más tiempo; el jugo suele tener mucha menos.</p>
+<div class="result-actions"><button class="pink" id="discover">Descubre más</button><button class="pink" id="replay">Volver a jugar</button></div>
+</section>
+</main>
+<dialog id="learn-dialog" aria-labelledby="learn-title"><button class="close-dialog" aria-label="Cerrar">×</button><h2 id="learn-title">Elegir bien, todos los días</h2><p>La variedad importa. Las frutas y verduras aportan fibra, vitaminas y minerales; el agua es una buena opción para acompañar tus comidas.</p><div class="learn-foods"><img src="assets/alimentos/sano-6.svg" alt="Plátanos"><img src="assets/alimentos/sano-8.svg" alt="Zanahoria"><img src="assets/alimentos/sano-9.svg" alt="Agua"></div><h3>Fruta entera y agua simple</h3><p>Prefiere la fruta entera para aprovechar su fibra. Los refrescos aportan azúcares libres: elige agua simple con más frecuencia.</p><p class="small">Los puntos son una regla del juego. Una alimentación saludable depende del conjunto de tus hábitos, la variedad y tus necesidades.</p><a href="https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer">Más sobre alimentación saludable · OMS ↗</a></dialog>
+<dialog id="pause-dialog" aria-labelledby="pause-title"><h2 id="pause-title">Una pequeña pausa</h2><p>El tiempo está detenido. Prepárense para volver al plato.</p><button class="pink" id="resume">Continuar</button></dialog>
+<script src="game-engine.js"></script><script src="app.js"></script>
+</body></html>
