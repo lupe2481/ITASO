@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palabras para cuidar · Itaso</title>
+<meta name="description" content="Resuelve las pistas y encuentra nueve palabras para cuidar tu bienestar en esta sopa de letras.">
+<link rel="icon" href="../assets/tab.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/Hansol.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="../assets/fonts/Avenir%20Next.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="sopa.css">
+</head>
+<body>
+<header class="site-header"><img class="logo" src="../assets/logo.svg" alt="Itaso mx" width="144" height="48"><nav aria-label="Navegación principal"><span class="desktop-nav">Inicio</span><button id="learn-nav" class="nav-link">Aprende</button><details class="games-menu"><summary>Juegos</summary><div><a href="../index.html">Reacción rápida</a><a href="index.html" aria-current="page">Sopa de letras</a></div></details><span class="desktop-nav">Nosotros</span><span class="desktop-nav">Comunidad</span><span class="login desktop-nav">Iniciar sesión</span></nav></header>
+<main class="scene" id="juego">
+<img class="tablecloth artwork" src="assets/mantel.png" alt="">
+<aside class="intro"><section class="title-card"><h1>Palabras<br>para cuidar</h1><p>Resuelve las pistas y encuentra nueve palabras relacionadas con algunos hábitos saludables y conceptos relacionados con tu bienestar.</p></section><button class="progress" id="progress" aria-label="0 de 9 palabras encontradas. Ver mis palabras"><span id="count">0/9</span><span>Palabras encontradas</span></button><button class="zoom" id="zoom" aria-pressed="false">Ampliar tablero</button></aside>
+<section class="board-section" aria-label="Sopa de letras"><div class="board-scroll" id="board-scroll"><div class="plate-wrap"><img class="plate artwork" src="assets/plato.svg" alt=""><div class="letters" id="letters" role="group" aria-label="Letras de la sopa" aria-describedby="selection-help"><svg id="highlights" viewBox="0 0 1100 1082" preserveAspectRatio="none" aria-hidden="true"><g id="found-lines"></g><polyline id="selection-line" hidden></polyline></svg><img class="letter-art" src="assets/sopa.svg" alt="" aria-hidden="true"><div class="letter-buttons" id="letter-buttons"></div></div></div></div><p class="selection-help" id="selection-help">Arrastra sobre una palabra o toca su primera y última letra.</p><p class="keyboard-help">Con teclado: usa las flechas y Enter para elegir los extremos; Esc cancela.</p><p class="selection-status" id="selection-status" role="status"></p></section>
+<aside class="clues-card"><h2>Instrucciones</h2><p>Lee cada pista y piensa cuál es la respuesta. Después, busca la palabra en la sopa de letras y selecciona sus letras de principio a fin. Las palabras pueden aparecer en horizontal, vertical o diagonal. En la cuadrícula se escriben sin espacios ni acentos.</p><ol id="clues"></ol></aside>
+<img class="hand artwork" src="assets/mano.svg" alt="">
+</main>
+<section class="word-message" id="word-message" role="status" aria-live="polite" aria-atomic="true" hidden><div><strong id="word-message-title"></strong><p id="word-message-body"></p></div><button id="dismiss-message" aria-label="Cerrar mensaje">×</button></section>
+<dialog class="completion" id="completion" aria-labelledby="completion-title"><h2 id="completion-title">¡Encontraste las 9 palabras!</h2><p class="completion-question">¿Te gustaría conocer mejor qué significan y cómo se relacionan con el bienestar de tu familia?</p><p class="completion-text">Explóralos y elige un hábito que te gustaría practicar en casa esta semana.</p><div class="dialog-actions"><button class="pink" id="discover">Descubre más</button><button class="pink" id="replay">Volver a jugar</button></div></dialog>
+<dialog class="information" id="information" aria-labelledby="information-title"><button class="close-dialog" id="close-information" aria-label="Cerrar">×</button><h2 id="information-title">Palabras para cuidar</h2><div id="information-content"></div><button class="pink" id="close-information-bottom">Seguir jugando</button></dialog>
+<script src="puzzle-data.js"></script><script src="sopa-engine.js"></script><script src="sopa.js"></script>
+</body>
+</html>

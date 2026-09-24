@@ -42,3 +42,17 @@ En una integración del mismo origen, el juego envía `itaso:round-finished` al 
 Se conservaron las clasificaciones de los archivos: diez ilustraciones `sano-*` y un refresco `chatarra-1`. El envase `sano-10` se muestra como «Leche». El sorteo incluye ocasiones de refresco y evita repetir el mismo alimento consecutivamente; solo existe una ilustración de alimento ocasional en la carpeta recibida.
 
 El logotipo procede del diseño de Figma y el resto de ilustraciones de `reaccion-1`. La pantalla final sigue la referencia proporcionada y añade el listado real de capturas.
+
+## Segundo juego: Palabras para cuidar
+
+Abre `dist/sopa/index.html` o visita https://lupe2481.github.io/ITASO/sopa/.
+
+- Arrastra desde la primera letra hasta la última, o pulsa/toca ambos extremos por separado. También acepta la selección al revés.
+- Teclado: Tab lleva al tablero, las flechas recorren las letras y Enter o espacio seleccionan los extremos. Esc cancela la selección.
+- Cada respuesta queda resaltada en amarillo y muestra un mensaje sobre su significado. Repetir una palabra no aumenta el contador.
+- El botón del contador abre el listado de palabras encontradas con sus explicaciones.
+- En pantallas pequeñas, «Ampliar tablero» permite ver las letras más grandes y recorrer el tablero horizontalmente.
+- Al completar las nueve palabras, «Descubre más» muestra sus significados y «Volver a jugar» limpia las selecciones y el contador. Se mantiene el mismo tablero original de Figma.
+- Respuestas: FRUTA, PORCIONES, RUTINA, DESCANSO, COLACIÓN, SACIEDAD, AGUA, LAVAR MANOS y APAGAR PANTALLAS.
+- Las 259 letras conservan el SVG original; las zonas de selección están alineadas con sus posiciones. Los assets propios están en `dist/sopa/assets`; el logo y las tipografías se comparten con el primer juego.
+- Para incrustarlo en otra página usa un iframe con `src="/ITASO/sopa/"` (ajusta la ruta a tu servidor), un título descriptivo y suficiente altura. El juego funciona sin cuentas ni conexión a servicios de recompensas.

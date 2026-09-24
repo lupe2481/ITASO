@@ -1,18 +1,18 @@
-# Itaso · Reacción rápida
+# Itaso · Juegos para cuidar
 
-Juego web para dos personas, con rondas de **30 segundos**, construido con HTML, CSS y JavaScript. Incluye imágenes y tipografías locales.
+Dos juegos web construidos con HTML, CSS y JavaScript. Incluyen sus ilustraciones y tipografías locales, sin dependencias de instalación.
 
-## Jugar
+## Jugar en el navegador
 
-Abre `dist/index.html` en tu navegador o sirve la carpeta `dist` con cualquier servidor web estático.
+- [Reacción rápida](https://lupe2481.github.io/ITASO/): dos jugadores, rondas de **30 segundos**, Tab y Enter para atrapar alimentos. Saludables: +10; ocasionales: −5.
+- [Palabras para cuidar](https://lupe2481.github.io/ITASO/sopa/): sopa de letras con nueve palabras, pistas, selección con mouse, pantalla táctil o teclado, mensajes educativos y reinicio.
 
-- **Jugador 1:** Tab.
-- **Jugador 2:** Enter.
-- Alimentos saludables: **+10 puntos**; ocasionales: **−5 puntos**.
-- Cada alimento solo puede atraparse una vez.
-- La pantalla final muestra el ganador o empate, las puntuaciones y las capturas de cada jugador.
-- Incluye pausa, explicación educativa y opción de volver a jugar.
+El menú **Juegos** permite cambiar entre ambos. También puedes abrir `dist/index.html` o `dist/sopa/index.html` directamente en tu navegador.
 
-Consulta [las instrucciones completas](LEEME.md) para integrar el juego en otra página.
+## Publicación
+
+GitHub Actions publica el contenido de `dist` en GitHub Pages al actualizar `main`.
+
+Consulta [las instrucciones completas](LEEME.md) para controles e integración en otra página.
 
 Los gráficos y fuentes se incluyen para este proyecto; este repositorio no concede una licencia adicional de redistribución de esos recursos.
