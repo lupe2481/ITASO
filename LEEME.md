@@ -56,3 +56,7 @@ Abre `dist/sopa/index.html` o visita https://lupe2481.github.io/ITASO/sopa/.
 - Respuestas: FRUTA, PORCIONES, RUTINA, DESCANSO, COLACIÓN, SACIEDAD, AGUA, LAVAR MANOS y APAGAR PANTALLAS.
 - Las 259 letras conservan el SVG original; las zonas de selección están alineadas con sus posiciones. Los assets propios están en `dist/sopa/assets`; el logo y las tipografías se comparten con el primer juego.
 - Para incrustarlo en otra página usa un iframe con `src="/ITASO/sopa/"` (ajusta la ruta a tu servidor), un título descriptivo y suficiente altura. El juego funciona sin cuentas ni conexión a servicios de recompensas.
+
+### Pesos de lectura
+
+Las indicaciones usan peso ligero (300) y las pistas y explicaciones usan Regular (400) de Avenir Next instalado en el equipo. Para el peso ligero se prefiere Light y se usa Ultra Light si es la variante local disponible. El archivo web proporcionado corresponde a Bold; para reproducir exactamente Light y Regular en equipos sin Avenir Next es necesario añadir esos archivos web. Mientras tanto, se usa una fuente sans serif del sistema si no están instalados.
