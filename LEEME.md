@@ -59,4 +59,4 @@ Abre `dist/sopa/index.html` o visita https://lupe2481.github.io/ITASO/sopa/.
 
 ### Pesos de lectura
 
-Las indicaciones usan peso ligero (300) y las pistas y explicaciones usan Regular (400) de Avenir Next instalado en el equipo. Para el peso ligero se prefiere Light y se usa Ultra Light si es la variante local disponible. El archivo web proporcionado corresponde a Bold; para reproducir exactamente Light y Regular en equipos sin Avenir Next es necesario añadir esos archivos web. Mientras tanto, se usa una fuente sans serif del sistema si no están instalados.
+Ambos juegos incluyen Avenir Next Ultra Light (275), Regular (400) y Bold (700). Las ayudas usan Ultra Light; las descripciones y explicaciones, Regular; la navegación, botones, etiquetas y puntuaciones en Avenir, Bold. Hansol se conserva en los títulos. Las fuentes se cargan desde archivos incluidos, sin depender de las instaladas en el dispositivo.
