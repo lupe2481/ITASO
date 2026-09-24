@@ -1,0 +1,1 @@
+(()=>{const link=document.querySelector('[data-account-link]');if(!link)return;try{const user=JSON.parse(sessionStorage.getItem('itaso.demo.session.v1')||'null');if(user&&typeof user.name==='string'&&typeof user.email==='string'&&['local-demo','google-demo'].includes(user.provider)){link.textContent='Mi cuenta';link.href=link.href.replace('/acceso/','/cuenta/');}}catch{}})();

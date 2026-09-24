@@ -28,3 +28,14 @@ Tercer juego: 21 preguntas para una semana, barra de bienestar, cierre diario e 
 https://lupe2481.github.io/ITASO/atrapar-comida/
 
 Juego de 30 segundos para atrapar alimentos con flechas o controles táctiles. Incluye siete categorías, consejos, resumen interactivo y pantalla educativa con enlace al IMSS. Abre `dist/atrapar-comida/index.html` para jugar localmente. Pruebas: `node tests/atrapar-comida.cjs`.
+
+### Acceso y cuenta de prueba
+
+- [Iniciar sesión](https://lupe2481.github.io/ITASO/acceso/?mode=login)
+- [Crear una cuenta](https://lupe2481.github.io/ITASO/acceso/?mode=register)
+
+Demostración local, sin backend: usa nombre, correo y contraseña ficticios. Los perfiles se guardan en localStorage; las contraseñas se guardan como derivados PBKDF2 con sal aleatoria, nunca como texto. La sesión se conserva en sessionStorage de esta pestaña. No existe autenticación de servidor ni protección de recursos. Google es una simulación explícita con un perfil ficticio, sin conexión ni permisos de Google. No se envían correos de verificación o recuperación.
+
+Tras entrar se abre Mi cuenta. Continuar jugando vuelve al juego que originó el acceso; solo se permiten los cuatro destinos internos. Cerrar sesión regresa al formulario de acceso. Para eliminar los perfiles de prueba, borra los datos del sitio en el navegador. Pruebas: `node tests/auth-demo.cjs`.
+
+Para cuentas reales se deberá sustituir el módulo `dist/auth-demo.js` por un servicio de autenticación y configurar sus flujos de verificación y recuperación.

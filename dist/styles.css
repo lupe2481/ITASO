@@ -9,3 +9,6 @@
 /* Keep supporting copy light and explanatory text regular. */
 .start-card small,dialog .small{font-weight:275}
 .instructions p,.start-card p,.result-count,.tip,.captured-list li,dialog p{font-weight:400}
+
+.site-header a.account-link,.nav a.account-link{display:inline-flex;background:#df177c;color:#f4f4f4;padding:10px 14px;border-radius:17px;text-decoration:none;font-size:clamp(12px,1.2vw,20px)}
+@media(max-width:700px){.site-header nav,.nav nav{gap:10px}.nav a.account-link{padding:8px 10px}.nav nav>a[href="../index.html"]{display:none}.nav img{width:80px}}

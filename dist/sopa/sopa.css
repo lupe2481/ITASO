@@ -20,3 +20,6 @@
 .title-card .controls-help .selection-help,
 .title-card .controls-help .keyboard-help{font-weight:275}
 .clues-card>p,.clues-card ol,.word-message p,.information article p{font-weight:400}
+
+.site-header a.account-link{display:inline-flex;background:#df177c;color:#f4f4f4;padding:10px 14px;border-radius:17px;text-decoration:none;font-size:clamp(12px,1.2vw,20px)}
+@media(max-width:700px){.site-header nav{gap:10px;font-size:13px}.site-header a.account-link{padding:8px 10px}}
