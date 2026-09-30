@@ -65,15 +65,15 @@ Ambos juegos incluyen Avenir Next Ultra Light (275), Regular (400) y Bold (700).
 
 Abre `dist/decisiones/index.html` en Safari u otro navegador, o visita https://lupe2481.github.io/ITASO/decisiones/.
 
-- Una semana simulada de lunes a domingo, con 21 situaciones: una para Mañana, Tarde y Noche cada día.
-- Cada situación ofrece tres opciones. La barra comienza en 0 cada día; cada elección suma 15, resta 5 o resta 15 puntos y muestra una explicación. El total diario va de −45 a +45 y el 0 está marcado en el centro: los puntos positivos suben y los negativos bajan. El historial incluye puntos por decisión, totales diarios y total semanal. Es una regla educativa, no una medición de salud real.
-- Los botones de momento del día permiten explorar las preguntas. Cada una se responde una sola vez; después se puede consultar la elección. «Continuar» lleva al siguiente momento pendiente.
-- Al completar los tres momentos se muestra el final del día, el resultado, cómo se sintió el personaje en la historia y las tres elecciones. El botón siguiente abre el próximo día.
-- El historial semanal muestra solo decisiones reales. Los días pendientes aparecen sin decisiones y las explicaciones se pueden desplegar con «Por qué».
-- Se guarda únicamente el progreso de este juego en localStorage, dentro de este navegador. Si el almacenamiento no está disponible, se avisa y el juego sigue funcionando durante esa visita. Los distintos dispositivos, navegadores y versiones local/publicada no comparten progreso.
-- «Empezar otra semana» pide confirmación antes de borrar el progreso de este juego.
-- Fondos e ilustraciones originales: carpeta `decisiones` proporcionada. Hansol y Avenir Next Ultra Light, Regular y Bold se comparten con los otros juegos.
-- Las referencias educativas de OMS, CDC y ADA están en «Descubre más». No se envían las elecciones a ningún servidor.
-- Pruebas del motor y persistencia: `node tests/decisiones.cjs`.
+- Cada partida corresponde a un día y presenta tres situaciones en orden: Mañana, Tarde y Noche. Al cerrar la tercera se muestran los resultados del día; no es necesario jugar los siete días.
+- Las situaciones y respuestas hablan desde las decisiones cotidianas de quien cuida: preparar alimentos, acompañar actividades y organizar rutinas. Las opciones contemplan prisa, presupuesto, preferencias y cambios de plan.
+- Después de elegir se muestra una explicación breve, una sugerencia práctica y el puntaje simbólico de esa respuesta. El puntaje total aparece en los resultados y en el historial; no mide la salud del niño ni la calidad del cuidado.
+- Una barra horizontal muestra cuántos momentos del día están completos, de 0 a 3. El historial semanal está disponible desde «Ver mi semana» en resultados y permite consultar días anteriores y pendientes.
+- «Jugar otro día» continúa la semana simulada. Cada resultado se conserva aunque no se completen los siete días.
+- El progreso nuevo se guarda en localStorage, en este navegador. Si existe progreso del formato anterior, permanece guardado con su clave original y se muestra un aviso; la versión nueva empieza con contenido nuevo para no atribuirle al usuario respuestas distintas. Los dispositivos y navegadores no comparten progreso.
+- Los recursos gráficos y las tipografías originales siguen en `dist/decisiones/assets` y `dist/assets/fonts`.
+- Las explicaciones conservan los temas de alimentación, actividad, sueño y cuidado dental, con enlaces a OMS, CDC y ADA en «Descubre más». La redacción es orientación general; las necesidades dependen de la edad, las preferencias y el contexto familiar.
+- **Revisión editorial pendiente antes de usar el juego como recurso educativo:** validar ejemplos y sugerencias con profesionales de nutrición, pediatría y odontología, además del equipo educativo; revisar accesibilidad cultural, restricciones alimentarias, alergias y necesidades específicas. Los puntos son una mecánica del juego, no una valoración profesional.
+- Pruebas del motor, contenido, flujo diario y guardado: `node tests/decisiones.cjs`.
 
-Para integrarlo, usa un iframe con `src="/ITASO/decisiones/"`, título «Un día de decisiones» y una altura suficiente (por ejemplo, 900px), ajustando la ruta al servidor.
+Para integrarlo, usa un iframe con `src="/ITASO/decisiones/"`, un título descriptivo y una altura suficiente; el diseño se adapta a computadora y celular.

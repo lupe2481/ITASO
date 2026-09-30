@@ -21,7 +21,7 @@ Los gráficos y fuentes se incluyen para este proyecto; este repositorio no conc
 
 https://lupe2481.github.io/ITASO/decisiones/
 
-Tercer juego: 21 preguntas para una semana, barra de bienestar, cierre diario e historial guardado en el navegador. Abre `dist/decisiones/index.html` para jugar localmente. Pruebas: `node tests/decisiones.cjs`.
+Tercer juego: situaciones para cuidadores, partida diaria de tres momentos, resultados independientes e historial semanal opcional. El progreso se guarda en este navegador. Abre `dist/decisiones/index.html` para jugar localmente. Pruebas: `node tests/decisiones.cjs`.
 
 ### Llena tu canasta
 
