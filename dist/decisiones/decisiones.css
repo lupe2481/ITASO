@@ -168,6 +168,36 @@
  .options{width:88%;align-self:center}
 }
 
+/* Escala y composición de escritorio basadas en el marco original de Figma. */
+@media(min-width:761px){
+ .play-view{max-width:1649px;min-height:calc(100svh - var(--nav-height));padding:42px clamp(48px,3.9vw,64px) 34px;grid-template-columns:minmax(220px,1fr) minmax(0,683px) minmax(130px,165px);column-gap:clamp(30px,3.3vw,54px);justify-content:normal;align-items:start}
+ .periods{grid-column:1;grid-row:1;gap:32px;padding-top:0;z-index:1}
+ .periods button{width:179px;max-width:100%;min-height:62px;padding:10px;font-size:clamp(22px,1.95vw,32px);border-radius:10px}
+ .decision-column{grid-column:2;grid-row:1;width:100%;max-width:683px;gap:20px}
+ .mascot{left:8.1%;top:42px;bottom:auto;width:min(39vw,642px);max-height:none;opacity:1;object-position:top left}
+ .question-card{width:100%;min-height:0;padding:28px;border-radius:20px;text-align:center;align-items:center;gap:14px}
+ .question-card h1{font-size:clamp(38px,3.15vw,52px);margin:0}
+ .question-card>p:last-child{font-size:clamp(20px,1.65vw,27px);line-height:1.4;text-align:center}
+ .options{width:min(100%,456px);align-self:center;gap:22px}
+ .option{min-height:75px;padding:14px 20px;border-radius:15px;font-size:clamp(18px,1.65vw,24px);line-height:1.35;text-align:center;justify-content:center}
+ .options.answered .option{justify-content:center}
+ .feedback{width:100%;padding:20px 24px}
+ .play-score{grid-column:3;grid-row:1;width:100%;margin-top:0;padding:14px 12px}
+}
+@media(min-width:761px) and (max-width:1100px){
+ .play-view{grid-template-columns:minmax(175px,1fr) minmax(0,600px) minmax(115px,140px);column-gap:24px;padding-left:30px;padding-right:30px}
+ .mascot{left:3%;width:min(35vw,430px);opacity:.88}
+ .periods button{width:100%;font-size:21px}
+ .decision-column{max-width:600px}
+ .question-card{padding:22px}
+ .options{width:min(100%,430px)}
+}
+@media(max-width:760px){
+ .mascot{width:150px;max-height:210px;opacity:.2}
+ .question-card{width:94%;align-self:center}
+ .options{width:88%;align-self:center}
+}
+
 
 .site-header a.account-link{display:inline-flex;background:#df177c;color:#f4f4f4;padding:10px 14px;border-radius:17px;text-decoration:none;font-size:clamp(12px,1.2vw,20px)}
 @media(max-width:700px){.site-header nav{gap:10px;font-size:13px}.site-header a.account-link{padding:8px 10px}}
