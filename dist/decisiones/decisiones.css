@@ -155,6 +155,19 @@
 .eyebrow{font-size:14px;line-height:1.45}
 @media(max-width:760px){.eyebrow{font-size:14px}.history-day small{font-size:13px}}
 
+/* Mascota más presente y decisiones con un ancho cercano al formato original. */
+@media(min-width:761px){
+ .decision-column{max-width:690px}
+ .mascot{left:1.5%;bottom:12px;width:clamp(190px,23vw,320px);max-height:58vh;opacity:.96}
+ .question-card{width:94%;align-self:center}
+ .options{width:86%;align-self:center}
+}
+@media(max-width:760px){
+ .mascot{width:132px;max-height:190px;opacity:.2}
+ .question-card{width:94%;align-self:center}
+ .options{width:88%;align-self:center}
+}
+
 
 .site-header a.account-link{display:inline-flex;background:#df177c;color:#f4f4f4;padding:10px 14px;border-radius:17px;text-decoration:none;font-size:clamp(12px,1.2vw,20px)}
 @media(max-width:700px){.site-header nav{gap:10px;font-size:13px}.site-header a.account-link{padding:8px 10px}}
