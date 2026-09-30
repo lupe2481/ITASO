@@ -1,5 +1,11 @@
 const assert=require('node:assert/strict');
+const fs=require('node:fs');
 const E=require('../dist/decisiones/engine.js'),D=require('../dist/decisiones/questions.js');
+const html=fs.readFileSync(require.resolve('../dist/decisiones/index.html'),'utf8');
+const app=fs.readFileSync(require.resolve('../dist/decisiones/decisiones.js'),'utf8');
+assert.match(html,/id="intro-view"/);assert.match(html,/id="start-game"[^>]*>Empezar</);
+assert.match(html,/tres momentos cotidianos de cuidado/i);assert.doesNotMatch(html,/upgrade-note|Actualizamos las situaciones y respuestas/);
+assert.match(app,/localStorage\.removeItem\('itaso-decisiones-v1'\)/);assert.match(app,/\$\('start-game'\)\.addEventListener\('click'/);assert.match(app,/show\('intro'\);\s*\}\)\(\);/);
 assert.equal(D.questions.length,7);assert.equal(new Set(D.questions.flat().map(q=>q.prompt)).size,21);
 for(const row of D.questions){
  assert.equal(row.length,3);

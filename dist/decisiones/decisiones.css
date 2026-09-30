@@ -158,3 +158,27 @@
 
 .site-header a.account-link{display:inline-flex;background:#df177c;color:#f4f4f4;padding:10px 14px;border-radius:17px;text-decoration:none;font-size:clamp(12px,1.2vw,20px)}
 @media(max-width:700px){.site-header nav{gap:10px;font-size:13px}.site-header a.account-link{padding:8px 10px}}
+
+.intro-view{min-height:calc(100svh - var(--nav-height));display:grid;place-items:center;padding:clamp(18px,4vw,56px)}
+.intro-card{width:min(100%,1000px);display:grid;grid-template-columns:minmax(150px,.75fr) minmax(0,1.4fr);align-items:center;gap:clamp(24px,5vw,64px);padding:clamp(24px,5vw,62px);background:var(--paper);border-radius:24px;box-shadow:0 14px 44px #0002}
+.intro-mascot{display:block;width:100%;max-width:265px;max-height:420px;height:auto;object-fit:contain;justify-self:center}
+.intro-copy .eyebrow{color:#8e1455;letter-spacing:.07em}
+.intro-copy h1{font:clamp(36px,5.4vw,60px)/1.04 Hansol,sans-serif;color:var(--orange);margin:8px 0 14px}
+.intro-lead{font-size:clamp(18px,2vw,22px);line-height:1.5;margin:0 0 18px}
+.instructions{padding:0;list-style:none;counter-reset:step;display:grid;gap:12px;margin:0}
+.instructions li{counter-increment:step;position:relative;padding-left:42px;font-size:17px;line-height:1.5}
+.instructions li::before{content:counter(step);position:absolute;left:0;top:0;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-size:15px;font-weight:700}
+.intro-note{font-size:14px;line-height:1.5;color:#333;margin:18px 0}
+.intro-start{min-width:170px;font-size:20px;padding:14px 30px}
+@media(max-width:760px){
+ .intro-view{padding:16px;min-height:calc(100svh - var(--nav-height));}
+ .intro-card{width:100%;grid-template-columns:1fr;gap:10px;padding:22px 18px;border-radius:16px}
+ .intro-mascot{width:95px;max-height:124px;justify-self:start;object-position:top}
+ .intro-copy h1{font-size:37px;margin:6px 0 10px}
+ .intro-lead{font-size:17px;margin-bottom:12px}
+ .instructions{gap:9px}
+ .instructions li{font-size:16px;line-height:1.42;padding-left:37px}
+ .instructions li::before{width:26px;height:26px}
+ .intro-note{font-size:13px;margin:13px 0}
+ .intro-start{width:100%;font-size:18px;padding:13px 22px}
+}
