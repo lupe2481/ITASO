@@ -9,8 +9,8 @@ Copia `index.html`, `style.css`, `game.js` y la carpeta `assets` a una subcarpet
 ## Reglas
 
 - 30 segundos de juego equivalen a 9 horas simuladas.
-- Cada objeto activo consume 4.5 unidades de descanso por segundo. La nota musical consume 10 al acercarse durante más de 3 segundos.
-- Las apariciones se aceleran y pueden coincidir; el primer objeto de una nueva partida cambia respecto a la anterior.
+- Cada distracción tiene 0.65 segundos de margen antes de consumir 3 unidades de descanso por segundo. La nota musical consume 6 al acercarse durante más de 3 segundos.
+- Las apariciones se aceleran y pueden coincidir, con un máximo de 2 al inicio, 3 a mitad de la noche y 4 al final; el primer objeto de una nueva partida cambia respecto a la anterior.
 - Apagar una distracción da 10 puntos, más 5 si se apaga en menos de un segundo. Llegar al amanecer da 100 puntos adicionales.
 - Teclas 1 a 6: lámpara, celular, televisión, bocina, ventana y nota musical. Escape pausa o continúa.
 - Cambiar de pestaña pausa automáticamente. No se guardan datos personales ni puntuaciones.
@@ -26,3 +26,5 @@ Recomendaciones de sueño: https://www.cdc.gov/sleep/about/
 Desde la raíz del repositorio: `node --test tests/sueno.cjs`
 
 Cubre victoria a los 30 segundos, derrota inmediata, drenaje y puntuación, pausa y reinicio, detención del objeto móvil y variación de la primera distracción.
+
+La vista se ajusta al alto disponible de la pantalla sin desplazamiento de la página. Verificada en 1366 × 768, 375 × 667 y 844 × 390. Las pruebas incluyen 100 noches aleatorias con reacciones de 1.5 segundos que llegan al amanecer.
