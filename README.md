@@ -39,3 +39,9 @@ Demostración local, sin backend: usa nombre, correo y contraseña ficticios. Lo
 Tras entrar se abre Mi cuenta. Continuar jugando vuelve al juego que originó el acceso; solo se permiten los cuatro destinos internos. Cerrar sesión regresa al formulario de acceso. Para eliminar los perfiles de prueba, borra los datos del sitio en el navegador. Pruebas: `node tests/auth-demo.cjs`.
 
 Para cuentas reales se deberá sustituir el módulo `dist/auth-demo.js` por un servicio de autenticación y configurar sus flujos de verificación y recuperación.
+
+### Una noche tranquila
+
+[ Jugar Una noche tranquila ](https://lupe2481.github.io/ITASO/sueno/)
+
+Mantén a Taso dormido durante 30 segundos apagando distracciones aleatorias y deteniendo una nota musical que se acerca. Incluye dificultad progresiva, pausa, reinicio, resultados y recomendaciones de sueño por edad. Adaptado para mouse, teclado y pantallas táctiles. Pruebas: `node --test tests/sueno.cjs`.
