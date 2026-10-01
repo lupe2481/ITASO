@@ -25,8 +25,8 @@ function harness(){
  const load=(file,expose='')=>{let code=fs.readFileSync(path.join(root,file),'utf8');if(expose)code=code.replace(/\}\)\(\);\s*$/,expose+'\n})();');vm.runInContext(code,context)};
  return {get,load,context,timers,clock:n=>now=n,run:code=>vm.runInContext(code,context)};
 }
-test('every game has the graphical control, accessible modal and shared design',()=>{
- for(const folder of ['','sopa','decisiones','atrapar-comida','sueno']){
+test('games with pause have the graphical control, accessible modal and shared design',()=>{
+ for(const folder of ['','decisiones','atrapar-comida','sueno']){
   const html=fs.readFileSync(path.join(root,folder,'index.html'),'utf8');
   for(const id of ['pause','pause-dialog','pause-time','pause-detail','resume','pause-restart'])assert.equal((html.match(new RegExp(`id="${id}"`,'g'))||[]).length,1,`${folder}: ${id}`);
   assert.match(html,/aria-label="Pausar juego"/);assert.match(html,/aria-labelledby="pause-title"/);assert.match(html,/pause\.css\?v=1/);
@@ -41,13 +41,13 @@ test('reaction pauses the clock and catches, resumes without lost time and offer
  h.get('resume').click();assert.equal(h.get('pause-dialog').open,false);h.clock(63000);h.run('window.test.game.tick()');assert.equal(h.run('window.test.game.remainingSeconds'),frozen-1);
  h.get('pause').click();h.get('pause-restart').click();assert.equal(h.get('pause-dialog').open,false);assert.equal(h.run('window.test.game.players[0].score'),0);assert.equal(h.run('window.test.game.phase'),'ready');
 });
-test('word search preserves found words in pause, suspends messages and restarts cleanly',()=>{
+test('word search graphical restart clears words, selection, highlights and pending messages',()=>{
  const h=harness();h.load('sopa/puzzle-data.js');h.load('sopa/sopa-engine.js');h.load('sopa/sopa.js','window.test={game,choose};');
  h.run('var word=window.ITASO_WORD_SEARCH.words[0];window.test.choose(word.path[0],word.path.at(-1))');
- assert.equal(h.get('count').textContent,'1/9');h.get('pause').click();assert.equal(h.get('pause-time').textContent,'1/9');assert.equal(h.timers.size,0);
- h.run('var next=window.ITASO_WORD_SEARCH.words[1];window.test.choose(next.path[0],next.path.at(-1))');assert.equal(h.get('count').textContent,'1/9');
- h.get('resume').click();assert.equal(h.get('pause-dialog').open,false);assert.equal(h.get('count').textContent,'1/9');assert.equal(h.timers.size,1);
- h.get('pause').click();h.get('pause-restart').click();assert.equal(h.get('count').textContent,'0/9');assert.equal(h.get('word-message').hidden,true);assert.equal(h.timers.size,0);
+ assert.equal(h.get('count').textContent,'1/9');assert.equal(h.timers.size,1);
+ h.get('restart-game').click();assert.equal(h.get('count').textContent,'0/9');assert.equal(h.get('word-message').hidden,true);assert.equal(h.timers.size,0);assert.equal(h.get('found-lines').children.length,0);
+ h.run('window.test.choose(word.path[0],word.path.at(-1))');assert.equal(h.get('count').textContent,'1/9');
+ const html=fs.readFileSync(path.join(root,'sopa/index.html'),'utf8');assert.match(html,/aria-label="Reiniciar sopa de letras"/);assert.doesNotMatch(html,/id="pause-dialog"/);
 });
 test('decisions pause reflects points; restarting only clears the current day and persists it',()=>{
  const h=harness();h.load('decisiones/questions.js');h.load('decisiones/engine.js');h.load('decisiones/decisiones.js','window.test={getState:()=>state,setup(){state.days[0]=[0,1,2];day=1;period=1;state.days[1]=[0,null,null];renderPlay();}};');

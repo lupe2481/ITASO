@@ -3,7 +3,6 @@
 const $=id=>document.getElementById(id),data=window.ITASO_WORD_SEARCH;
 const game=new window.ItasoWordSearch(data),buttons=new Map();
 const svgNS='http://www.w3.org/2000/svg';
-let paused=false;
 let anchor=null,gesture=null,completionTimer=null,messageTimer=null,returnToCompletion=false;
 const points=ids=>ids.map(id=>{const c=game.cells.get(id);return `${c.x},${c.y}`;}).join(' ');
 function selection(first,last=first){
@@ -41,18 +40,17 @@ function renderFound(){
   data.cells.forEach(cell=>buttons.get(cell.id).setAttribute('aria-label',`Fila ${cell.row+1}, letra ${cell.col+1}: ${cell.letter}${foundIds.has(cell.id)?', encontrada':''}`));
 }
 function complete(){
-  $('pause').hidden=true;
   $('word-message').hidden=true;
   if(!$('completion').open)$('completion').showModal();
 }
 function choose(first,last){
   clearSelection();
-  if(game.complete||paused)return;
+  if(game.complete)return;
   const result=game.select(first,last);
   if(result.status==='invalid'){$('selection-status').textContent='Inténtalo de nuevo: elige la primera y la última letra de una respuesta.';return;}
   if(result.status==='duplicate'){$('selection-status').textContent=`Ya encontraste ${result.word.label}. Busca otra palabra.`;return;}
   $('selection-status').textContent='';renderFound();showMessage(result.word);
-  if(result.complete){$('pause').hidden=true;completionTimer=setTimeout(complete,3300);}
+  if(result.complete)completionTimer=setTimeout(complete,3300);
 }
 function tap(id){
   if(anchor===id){clearSelection();$('selection-status').textContent='Selección cancelada.';}
@@ -147,7 +145,7 @@ $('completion').addEventListener('cancel',()=>{clearTimeout(completionTimer);});
 function restart(){
   clearTimeout(completionTimer);clearTimeout(messageTimer);$('completion').close();$('word-message').hidden=true;
   game.reset();clearSelection();renderFound();$('selection-status').textContent='¡Una nueva oportunidad para encontrar las nueve palabras!';
-  $('board-scroll').scrollLeft=0;focusCell(data.cells[0].id);$('pause').hidden=false;
+  $('board-scroll').scrollLeft=0;focusCell(data.cells[0].id);
 }
 $('replay').addEventListener('click',restart);
 $('zoom').addEventListener('click',()=>{
@@ -156,17 +154,6 @@ $('zoom').addEventListener('click',()=>{
   $('selection-help').textContent=active?'Mueve la barra horizontal para recorrer el plato. Selecciona los extremos de una palabra.':'Arrastra sobre una palabra o toca su primera y última letra.';
 });
 document.addEventListener('click',event=>{if(!event.target.closest('.games-menu'))document.querySelector('.games-menu').open=false;});
-function pause(){
-  if(paused||game.complete)return;
-  paused=true;clearSelection();clearTimeout(messageTimer);
-  $('pause-time').textContent=`${game.found.size}/${data.words.length}`;
-  $('pause-detail').textContent='Palabras para cuidar · Tus palabras encontradas se conservan.';
-  $('pause-dialog').showModal();
-}
-function resume(){paused=false;$('pause-dialog').close();if(!$('word-message').hidden)messageTimer=setTimeout(()=>$('word-message').hidden=true,6500);}
-$('pause').addEventListener('click',pause);
-$('resume').addEventListener('click',resume);
-$('pause-restart').addEventListener('click',()=>{paused=false;$('pause-dialog').close();restart();});
-$('pause-dialog').addEventListener('cancel',event=>{event.preventDefault();resume();});
+$('restart-game').addEventListener('click',restart);
 renderFound();
 })();
