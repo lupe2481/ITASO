@@ -23,3 +23,8 @@
 
 .site-header a.account-link{display:inline-flex;background:#df177c;color:#f4f4f4;padding:10px 14px;border-radius:17px;text-decoration:none;font-size:clamp(12px,1.2vw,20px)}
 @media(max-width:700px){.site-header nav{gap:10px;font-size:13px}.site-header a.account-link{padding:8px 10px}}
+
+/* Restart belongs beneath the instructions, as in the game reference. */
+.clues-panel{min-width:0;position:relative;z-index:2;display:flex;flex-direction:column;align-items:stretch;gap:16px}
+.restart-game{align-self:flex-end;width:192px;max-width:100%;padding:10px 27px;border-radius:16px;background:var(--pink);color:var(--paper);font:400 24px/1.3 Hansol,sans-serif}
+@media(max-width:700px){.clues-panel{width:100%;padding:0 18px}.clues-panel .clues-card{margin:24px 0 0}.restart-game{min-height:44px}}
