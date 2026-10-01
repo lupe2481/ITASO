@@ -8,7 +8,7 @@ if(period<0)period=2;
 function save(){try{localStorage.setItem(key,JSON.stringify(state));}catch{$('storage-note').hidden=false;}}
 function el(tag,text,className){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;}
 function focus(id){$(id).focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
-function show(name){view=name;for(const n of ['intro','play','end','history'])$(n+'-view').hidden=n!==name;$('juego').classList.toggle('is-history',name==='history');}
+function show(name){view=name;$('pause').hidden=name!=='play';for(const n of ['intro','play','end','history'])$(n+'-view').hidden=n!==name;$('juego').classList.toggle('is-history',name==='history');}
 function points(value){return (value>0?'+':'')+value+' puntos';}
 function setProgress(done){$('progress-text').textContent=done+' de 3 decisiones completadas';$('decision-progress').setAttribute('aria-valuenow',done);$('decision-progress').querySelector('.progress-fill').style.width=(done/3*100)+'%';}
 function renderFeedback(option){$('feedback').hidden=!option;if(!option)return;$('delta').textContent=points(option.points)+' · puntaje del juego';$('explanation').textContent=option.effect;$('suggestion').textContent=option.suggestion;$('continue').textContent=E.completed(state,day)?'Ver resultados del día':'Continuar a '+D.periods[state.days[day].findIndex(n=>n===null)].toLowerCase();}
@@ -27,5 +27,15 @@ $('next-day').addEventListener('click',()=>{if(day===6){$('reset-dialog').showMo
 $('see-week').addEventListener('click',()=>openHistory(day));$('back-game').addEventListener('click',()=>{if(previousView==='end'&&E.completed(state,day))renderEnd();else renderPlay(true);});
 for(const id of ['learn-nav','discover'])$(id).addEventListener('click',()=>$('learn-dialog').showModal());document.querySelector('.close-dialog').addEventListener('click',()=>$('learn-dialog').close());$('reset-week').addEventListener('click',()=>$('reset-dialog').showModal());$('cancel-reset').addEventListener('click',()=>$('reset-dialog').close());$('confirm-reset').addEventListener('click',()=>{state=E.fresh();day=0;period=0;save();$('reset-dialog').close();renderPlay(true);});
 const navigation=window.ITASO_CONFIG?.navigation||{};for(const label of document.querySelectorAll('[data-nav]')){const href=navigation[label.dataset.nav];if(!href)continue;try{const url=new URL(href,location.href);if(!['https:','http:'].includes(url.protocol))continue;const link=el('a',label.textContent,label.className);link.href=url.href;label.replaceWith(link);}catch{}}
+$('pause').addEventListener('click',()=>{
+  $('pause-time').textContent=state.days[day].filter(n=>n!==null).length+'/3';
+  $('pause-detail').textContent=D.days[day]+' · '+D.periods[period]+' · '+points(E.score(state,day))+'. Reiniciar día conserva los demás días de tu semana.';
+  $('pause-dialog').showModal();
+});
+$('resume').addEventListener('click',()=>$('pause-dialog').close());
+$('pause-restart').addEventListener('click',()=>{
+  state.days[day]=[null,null,null];period=0;save();$('pause-dialog').close();renderPlay(true);
+});
+$('pause-dialog').addEventListener('cancel',event=>{event.preventDefault();$('pause-dialog').close();});
 show('intro');
 })();

@@ -8,7 +8,7 @@
 <link rel="preload" href="assets/fonts/Hansol.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/avenir-next-regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="styles.css?v=duelo-1">
-</head>
+<link rel="stylesheet" href="pause.css?v=1"></head>
 <body>
 <header class="site-header"><img class="logo" src="assets/logo.svg" alt="Itaso mx" width="144" height="48"><nav aria-label="Navegación principal"><span data-nav="inicio">Inicio</span><button class="nav-link" id="learn-nav">Aprende</button><details class="games-menu"><summary>Juegos</summary><div><a href="index.html" aria-current="page">Reacción rápida</a><a href="sopa/index.html">Sopa de letras</a><a href="decisiones/index.html">Un día de decisiones</a><a href="atrapar-comida/index.html">Llena tu canasta</a><a href="sueno/index.html">Una noche tranquila</a></div></details><span data-nav="nosotros">Nosotros</span><span data-nav="comunidad">Comunidad</span><a class="login account-link" data-account-link href="acceso/index.html?mode=login&amp;next=reaccion">Iniciar sesión</a></nav></header>
 <main id="juego" tabindex="-1">
@@ -27,7 +27,7 @@
 <button class="catch catch-one" id="catch-0" aria-label="Atrapar para Jugador 1, tecla Tab" disabled><img src="assets/tab.svg" alt=""><span>Tab</span></button>
 <button class="catch catch-two" id="catch-1" aria-label="Atrapar para Jugador 2, tecla Enter" disabled><img src="assets/enter.svg" alt=""><span>Enter</span></button>
 <div class="timer" role="timer" aria-label="Tiempo restante"><span id="timer">00:30</span></div>
-<button class="pause" id="pause" hidden>Pausar</button>
+<button id="pause" class="pause-icon" type="button" aria-label="Pausar juego" aria-haspopup="dialog" aria-controls="pause-dialog" hidden><span aria-hidden="true"></span></button>
 </section>
 <section id="results" class="results" aria-labelledby="winner" hidden>
 <h1 id="winner" tabindex="-1"></h1><div class="result-columns" id="result-columns"></div>
@@ -36,6 +36,13 @@
 </section>
 </main>
 <dialog id="learn-dialog" aria-labelledby="learn-title"><button class="close-dialog" aria-label="Cerrar">×</button><h2 id="learn-title">Elegir bien, todos los días</h2><p>La variedad importa. Las frutas y verduras aportan fibra, vitaminas y minerales; el agua es una buena opción para acompañar tus comidas.</p><div class="learn-foods"><img src="assets/alimentos/sano-6.svg" alt="Plátanos"><img src="assets/alimentos/sano-8.svg" alt="Zanahoria"><img src="assets/alimentos/sano-9.svg" alt="Agua"></div><h3>Fruta entera y agua simple</h3><p>Prefiere la fruta entera para aprovechar su fibra. Los refrescos aportan azúcares libres: elige agua simple con más frecuencia.</p><p class="small">Los puntos son una regla del juego. Una alimentación saludable depende del conjunto de tus hábitos, la variedad y tus necesidades.</p><a href="https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer">Más sobre alimentación saludable · OMS ↗</a></dialog>
-<dialog id="pause-dialog" aria-labelledby="pause-title"><h2 id="pause-title">Una pequeña pausa</h2><p>El tiempo está detenido. Prepárense para volver al plato.</p><button class="pink" id="resume">Continuar</button></dialog>
+
+<dialog id="pause-dialog" class="itaso-pause" aria-labelledby="pause-title" aria-describedby="pause-description">
+<h2 id="pause-title">¡Una pequeña pausa!</h2>
+<p id="pause-description"><strong>El juego está en pausa.</strong><br>Continúa cuando estés listo.</p>
+<p class="pause-stat">Tiempo restante<strong id="pause-time">00:30</strong></p>
+<p id="pause-detail" class="pause-detail"></p>
+<div class="pause-actions"><button id="resume" type="button">Continuar</button><button id="pause-restart" type="button">Reiniciar</button></div>
+</dialog>
 <script src="game-engine.js"></script><script src="app.js"></script>
 <script src="account-nav.js"></script></body></html>

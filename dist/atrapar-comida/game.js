@@ -33,7 +33,7 @@ function start(){cancelAnimationFrame(frame);reset();state='playing';$('pause-di
 function pauseGame(){
  if(state!=='playing')return;
  state='paused';cancelAnimationFrame(frame);keys.clear();
- $('pause-time').textContent=$('timer').textContent;
+ $('pause-time').textContent=$('timer').textContent;$('pause-detail').textContent=`Canasta: ${points} puntos · ${$('percent').textContent} completo`;
  $('pause-dialog').showModal();$('resume').focus({preventScroll:true});
 }
 function resumeGame(){
@@ -59,6 +59,7 @@ function openLearn(){state='learn';$('results').hidden=true;$('learn').hidden=fa
 function closeLearn(){state='results';$('learn').hidden=true;$('results').hidden=false;$('discover').focus({preventScroll:true});}
 $('discover').addEventListener('click',openLearn);$('back-results').addEventListener('click',closeLearn);$('show-summary').addEventListener('click',showSummary);
 window.addEventListener('keydown',e=>{if(e.key==='Escape'&&state==='learn')closeLearn();});
+$('pause-restart').addEventListener('click',start);
 $('pause').addEventListener('click',pauseGame);$('resume').addEventListener('click',resumeGame);
 $('pause-dialog').addEventListener('cancel',e=>{e.preventDefault();resumeGame();});
 $('start').addEventListener('click',start);$('restart').addEventListener('click',start);

@@ -89,7 +89,7 @@ function pause() {
   if(game.phase!=='playing')return;
   game.pause();
   if(game.phase==='finished'){render();finish();return;}
-  held.clear();$('pause-dialog').showModal();render();
+  held.clear();$('pause-time').textContent=formatTime(game.remainingSeconds);$('pause-detail').textContent=game.players.map((p,i)=>`Jugador ${i+1}: ${p.score} pts`).join(' · ');$('pause-dialog').showModal();render();
 }
 function resume() {if($('pause-dialog').open)$('pause-dialog').close();game.resume();held.clear();$('juego').focus({preventScroll:true});render();}
 function learn() {
@@ -102,6 +102,7 @@ $('learn-dialog').addEventListener('close',()=>{if(pausedForLearn){game.resume()
 $('learn-dialog').querySelector('.close-dialog').addEventListener('click',()=>$('learn-dialog').close());
 $('learn-nav').addEventListener('click',learn);$('discover').addEventListener('click',learn);
 $('start').addEventListener('click',startCountdown);$('replay').addEventListener('click',startCountdown);
+$('pause-restart').addEventListener('click',()=>{$('pause-dialog').close();startCountdown();});
 $('pause').addEventListener('click',pause);$('resume').addEventListener('click',resume);
 $('pause-dialog').addEventListener('cancel',event=>{event.preventDefault();resume();});
 for(let i=0;i<2;i++) {
