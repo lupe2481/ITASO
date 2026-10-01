@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reacción rápida · Itaso</title>
+<title>Duelo de bocados · Itaso</title>
 <meta name="description" content="Elige bien lo que comes y atrápalo rápido. Un juego para dos personas, una mesa y 30 segundos.">
 <link rel="icon" href="assets/tab.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/Hansol.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/avenir-next-regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=duelo-1">
 </head>
 <body>
 <header class="site-header"><img class="logo" src="assets/logo.svg" alt="Itaso mx" width="144" height="48"><nav aria-label="Navegación principal"><span data-nav="inicio">Inicio</span><button class="nav-link" id="learn-nav">Aprende</button><details class="games-menu"><summary>Juegos</summary><div><a href="index.html" aria-current="page">Reacción rápida</a><a href="sopa/index.html">Sopa de letras</a><a href="decisiones/index.html">Un día de decisiones</a><a href="atrapar-comida/index.html">Llena tu canasta</a><a href="sueno/index.html">Una noche tranquila</a></div></details><span data-nav="nosotros">Nosotros</span><span data-nav="comunidad">Comunidad</span><a class="login account-link" data-account-link href="acceso/index.html?mode=login&amp;next=reaccion">Iniciar sesión</a></nav></header>
@@ -15,13 +15,13 @@
 <section class="game-board" aria-label="Juego de reacción rápida">
 <img class="mat art" src="assets/mantel.svg" alt="">
 <img class="plate art" src="assets/plato.svg" alt="">
-<aside class="instructions"><strong>Elige bien lo que comes y atrápalo ¡rápido!</strong><p>Recuerden que saber tomar buenas decisiones para cuidar su salud es importante.</p><div class="rules"><span>Saludables <b>+10</b></span><span>Ocasionales <b>−5</b></span></div></aside>
+<aside class="instructions"><strong>Elige bien lo que comes y atrápalo ¡rápido!</strong><p>Recuerden que saber tomar buenas decisiones para cuidar tu salud es importante.</p><div class="rules"><span>Saludables <b>+10</b></span><span>Ocasionales <b>−5</b></span></div></aside>
 <div class="player player-one"><h2>JUGADOR 1</h2><p><span id="score-0">0</span> pts</p></div>
 <div class="player player-two"><h2>JUGADOR 2</h2><p><span id="score-1">0</span> pts</p></div>
 <img id="hand-0" class="hand hand-one art" src="assets/jugador-1.svg" alt="">
 <img id="hand-1" class="hand hand-two art" src="assets/jugador-2.svg" alt="">
 <div class="food-slot" id="food-slot" hidden><img id="food-image" alt=""><span id="food-name"></span></div>
-<div class="start-card" id="start-card"><h1>Reacción<br>rápida</h1><p>Dos jugadores. Un plato.<br>¡30 segundos para elegir bien!</p><button class="pink" id="start" disabled>Cargando…</button><small>Tab · Jugador 1 &nbsp; | &nbsp; Enter · Jugador 2</small></div>
+<div class="start-card" id="start-card"><h1>Duelo<br>de bocados</h1><p class="start-intro">¡Compitan entre dos personas en el mismo teclado!</p><p class="start-rules">Presionen su tecla para atrapar alimentos saludables (+10). Dejen pasar los que no (−5).</p><p class="start-duration"><strong>¡Tienen 30 segundos!</strong></p><button class="pink" id="start" disabled>Cargando…</button><small>Jugador 1: Tab &nbsp; | &nbsp; Jugador 2: Enter</small></div>
 <div class="countdown" id="countdown" aria-live="assertive" hidden></div>
 <p class="feedback" id="feedback" aria-live="polite"></p>
 <button class="catch catch-one" id="catch-0" aria-label="Atrapar para Jugador 1, tecla Tab" disabled><img src="assets/tab.svg" alt=""><span>Tab</span></button>
