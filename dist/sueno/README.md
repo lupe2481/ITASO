@@ -9,7 +9,7 @@ Copia `index.html`, `style.css`, `game.js` y la carpeta `assets` a una subcarpet
 ## Reglas
 
 - 30 segundos de juego equivalen a 9 horas simuladas.
-- Cada distracción tiene 0.65 segundos de margen antes de consumir 2 unidades de descanso por segundo. La nota musical consume 4 al acercarse durante más de 3 segundos.
+- Cada distracción tiene 0.65 segundos de margen antes de consumir 2.4 unidades de descanso por segundo. La nota musical consume 4.8 al acercarse durante más de 3 segundos.
 - Las apariciones se aceleran y pueden coincidir, con la frecuencia original y hasta los seis objetos activos a la vez; el primer objeto de una nueva partida cambia respecto a la anterior.
 - Apagar una distracción da 10 puntos, más 5 si se apaga en menos de un segundo. Llegar al amanecer da 100 puntos adicionales.
 - Teclas 1 a 6: lámpara, celular, televisión, bocina, ventana y nota musical. Escape pausa o continúa.
