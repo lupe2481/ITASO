@@ -28,3 +28,5 @@ Desde la raíz del repositorio: `node --test tests/sueno.cjs`
 Cubre victoria a los 30 segundos, derrota inmediata, drenaje y puntuación, pausa y reinicio, detención del objeto móvil y variación de la primera distracción.
 
 La vista se ajusta al alto disponible de la pantalla sin desplazamiento de la página. Verificada en 1366 × 768, 375 × 667 y 844 × 390. Las pruebas incluyen 100 noches reproducibles con reacciones de 1.5 segundos que llegan al amanecer y 100 con reacciones de 5 segundos que terminan en derrota.
+
+Durante la partida se muestran seis mensajes de sueño saludable, uno cada cinco segundos de juego activo. Alternan consejos y datos; la siguiente partida empieza con otro mensaje. Se pausan junto al juego. Fuente: CDC, https://www.cdc.gov/sleep/about/.

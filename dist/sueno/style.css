@@ -49,3 +49,8 @@ main{flex:1 1 0;min-height:0;width:100%;max-width:none;margin:0;aspect-ratio:aut
  .rest-box>span:first-child{font-size:28px}.tip{width:210px;bottom:12px;padding:10px}.tip h2{font-size:18px}
  .tip p{font-size:12px}.count{left:38%;top:16px;bottom:auto;font-size:12px}
 }
+
+/* Educational messages stay in the existing non-interactive HUD area. */
+.tip{border-top:4px solid #37bcf7}.tip-heading{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:700;color:#8e104f;margin-bottom:8px}.tip h2{font:700 16px/1.2 Avenir,sans-serif;margin:0 0 6px}.tip p{font-size:14px;line-height:1.4;min-height:4.2em}
+@media(max-width:700px){.tip-heading{margin-bottom:5px}.tip h2{font-size:15px}.tip p{font-size:13px;min-height:2.8em}.count{bottom:140px}}
+@media(max-height:520px) and (min-width:600px){.tip{width:230px;padding:8px 10px}.tip-heading{font-size:12px;margin-bottom:4px}.tip h2{font-size:14px;margin-bottom:4px}.tip p{font-size:12px;min-height:4.2em}}
