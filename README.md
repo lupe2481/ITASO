@@ -45,3 +45,13 @@ Para cuentas reales se deberá sustituir el módulo `dist/auth-demo.js` por un s
 [ Jugar Una noche tranquila ](https://lupe2481.github.io/ITASO/sueno/)
 
 Mantén a Taso dormido durante 30 segundos apagando distracciones aleatorias y deteniendo una nota musical que se acerca. Incluye dificultad progresiva, pausa, reinicio, resultados y recomendaciones de sueño por edad. Adaptado para mouse, teclado y pantallas táctiles. Pruebas: `node --test tests/sueno.cjs`.
+
+### Memoragua
+
+[Jugar Memoragua](https://lupe2481.github.io/ITASO/memoragua/)
+
+Memorama adaptable a escritorio y celular: 15 pares elegidos al azar de un catálogo de 19 bebidas, con representación de los seis grupos de la Jarra del Buen Beber. Fácil: 90 segundos; difícil: 60 segundos. Suma 100 puntos por par y resta 20 por error. Incluye pausa, resultados, jarra de avance y explicaciones que se abren al pulsar cada barra de color. Las explicaciones conservan las 19 bebidas, incluso las que no salieron en la partida.
+
+La jarra representa pares encontrados, no bebidas consumidas ni cantidades recomendadas. Usa ilustraciones y fuentes locales y funciona sin instalación. Abre `dist/memoragua/index.html`.
+
+Pruebas: `node --test tests/memoragua.cjs`. La comprobación de navegador `node tests/memoragua-browser.cjs` requiere Playwright y Chrome; permite indicar su ejecutable con `CHROME_PATH`.
