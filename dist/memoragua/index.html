@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#000000"><meta name="description" content="Memoragua: encuentra pares de bebidas y explora la Jarra del Buen Beber con ITASO."><title>Memoragua · ITASO</title><link rel="stylesheet" href="style.css"><script src="engine.js" defer></script><script src="app.js" defer></script></head>
+<body>
+<header class="site-header"><div class="nav-inner"><a class="brand" href="./index.html" aria-label="Memoragua, inicio"><img src="assets/logo.svg" alt="ITASO" width="144" height="48"></a><nav aria-label="Navegación del juego"><button class="nav-link" data-action="home">Inicio</button><button class="nav-link" data-action="explore">Aprende</button><details class="games-menu"><summary>Juegos</summary><div><a href="../index.html">Reacción rápida</a><a href="../sopa/index.html">Sopa de letras</a><a href="../decisiones/index.html">Un día de decisiones</a><a href="../atrapar-comida/index.html">Llena tu canasta</a><a href="../sueno/index.html">Una noche tranquila</a><a href="index.html" aria-current="page">Memoragua</a></div></details><button class="nav-help" data-action="help">Cómo jugar <span aria-hidden="true">?</span></button></nav></div></header>
+<main class="game-shell" id="main">
+  <div class="game-heading"><div><span class="eyebrow">JUEGA, DESCUBRE Y APRENDE</span><h1>Memoragua</h1></div><p>Encuentra dos bebidas idénticas.<br><strong>¡Cada par llena tu jarra!</strong></p></div>
+  <div class="game-layout">
+    <section class="board-area" aria-label="Tablero de Memoragua"><div class="board-top"><span><strong id="pair-count">0</strong> / <span id="pair-total">15</span> pares</span><span>+100 por par <i>·</i> −20 por error</span></div><div id="board" class="board"></div><p class="board-caption">Misma bebida, mismo par. Compartir color no es suficiente.</p></section>
+    <aside class="dashboard" aria-label="Avance de la partida"><div class="stats"><div class="timer-box"><span>Tiempo restante</span><strong id="timer" role="timer" aria-label="Tiempo restante">01:30</strong></div><div class="score-box"><span>Puntos</span><strong id="score">0</strong></div><button id="pause" class="pause-button" data-action="pause" aria-label="Pausar juego">Ⅱ</button></div><div class="level-line"><span id="level" class="level-badge">Nivel 1 · Fácil</span><span id="errors">0 errores</span></div><div id="feedback" class="feedback" aria-live="polite"><strong>¡Vamos por el primer par!</strong><span>Toca dos tarjetas para descubrirlas.</span></div><div class="jug-heading"><h2>Tu jarra de avance</h2><span id="progress">0 %</span></div><div id="jug-panel" class="jug-panel"></div><p class="progress-note">La jarra muestra pares encontrados, no bebidas consumidas ni cantidades recomendadas.</p><button class="text-button" data-action="explore">Explorar la jarra <span aria-hidden="true">↗</span></button></aside>
+  </div>
+  <footer>ITASO <span>·</span> Pequeñas decisiones, grandes hábitos.</footer>
+</main>
+<dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+<div class="sr-only" id="announcement" aria-live="assertive"></div>
+</body></html>
