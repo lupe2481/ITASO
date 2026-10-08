@@ -38,3 +38,13 @@ Corregido el selector de alimentos: cada ciclo de 13 apariciones incluye las sie
 El panel naranja ajusta su altura al contenido. Al tocar de nuevo la barra activa, o pulsar «Ver resumen general», vuelve el mensaje inicial. «Descubre más» abre una pantalla informativa con fondo #F4F4F4 y un botón separado al sitio oficial del IMSS. Volver a resultados conserva la partida y la categoría seleccionada.
 
 Las pruebas incluyen 20 ciclos completos de categorías y las transiciones entre detalle, resumen e información.
+
+## Nuevos alimentos y preparaciones (8 de octubre de 2026)
+
+Se integran las 52 ilustraciones actuales de comida y se conservan manzana, leche, agua y refresco del catálogo anterior. Las recetas están declaradas en game.js: quesadilla con queso, torta de jamón con verduras, tacos de canasta de frijol, tamal de pollo, arroz con verduras, elote/esquites con queso y chicharrón preparado con cueritos. Son variantes didácticas explícitas, no afirmaciones sobre rellenos ocultos en las imágenes.
+
+Cada captura suma una unidad a cada grupo de ingredientes, sin duplicar los puntos. El resumen distingue capturas totales de apariciones en los grupos y explica el ingrediente correspondiente. Pepitas son grasas saludables; la ilustración soya es salsa de soya, no leguminosa. Los dulces y la sopa instantánea aparecen en productos para limitar y no completan el plato. El catálogo rota sin repetir dentro de cada categoría hasta agotarla.
+
+Referencia de grupos: https://www.imss.gob.mx/node/84301
+
+En escritorio (más de 700 px de ventana), los alimentos caen con un tamaño de 72–112 px según el área de juego; en móvil conservan su tamaño anterior.
