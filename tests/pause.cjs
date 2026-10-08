@@ -34,7 +34,7 @@ test('games with pause have the graphical control, accessible modal and shared d
  }
 });
 test('reaction pauses the clock and catches, resumes without lost time and offers restart',()=>{
- const h=harness();h.load('game-engine.js');h.load('app.js','window.test={game,pause,resume};');
+ const h=harness();h.load('game-engine.js');h.load('reaction-foods.js');h.load('app.js','window.test={game,pause,resume};');
  h.run('window.test.game.start()');h.clock(2000);h.run('window.test.pause()');
  const frozen=h.run('window.test.game.remainingSeconds');assert.equal(h.get('pause-dialog').open,true);
  h.clock(62000);h.run('window.test.game.tick();window.test.game.catch(0)');assert.equal(h.run('window.test.game.remainingSeconds'),frozen);assert.equal(h.run('window.test.game.players[0].score'),0);

@@ -1,9 +1,7 @@
 (() => {
 'use strict';
 const $ = id => document.getElementById(id);
-const names = ['Betabel','Aguacate','Limón','Huevo','Jitomate','Plátanos','Uvas','Zanahoria','Agua simple','Leche'];
-const foods = names.map((name,i) => ({id:`sano-${i+1}`,name,healthy:true,image:`assets/alimentos/sano-${i+1}.svg`}));
-foods.push({id:'chatarra-1',name:'Refresco',healthy:false,image:'assets/alimentos/chatarra-1.svg'});
+const foods = window.ITASO_REACTION_FOODS;
 const game = new window.ReactionGame({foods});
 let countdownId, countdownRunning=false, activeFood=null, lastFeedback=null, lastTime=null, pausedForLearn=false;
 const held = new Set();
@@ -67,7 +65,8 @@ function resultCard(player,index) {
       const li=document.createElement('li');const img=document.createElement('img');img.src=food.image;img.alt='';
       const label=document.createElement('span');label.textContent=`${food.name} × ${food.count}`;
       const score=document.createElement('b');score.textContent=`${food.healthy?'+':'−'}${food.count*Math.abs(food.points)}`;
-      li.append(img,label,score);list.append(li);
+      li.append(img,label,score);
+      const note=document.createElement('small');note.className='food-note';note.textContent=food.note;li.append(note);list.append(li);
     });details.append(list);
   }
   card.append(details);return card;
