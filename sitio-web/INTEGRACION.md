@@ -20,7 +20,7 @@ Los seis botones de `app/game-links.ts` abren los juegos incluidos en `public/ju
 
 La selección de avatar está en `app/sections.tsx`, componente `Games`. Los originales están en `public/avatars/`. Al abrir «Cambiar avatar» aparecen las seis opciones; la seleccionada tiene fondo gris y su SVG se muestra en escala de grises. El personaje principal conserva su color.
 
-Con sesión, el avatar se guarda en el perfil activo. Sin sesión, se puede probar durante la visita y se informa que no se guarda al salir.
+Con sesión, el avatar se guarda en el perfil activo. Sin sesión no se ofrece personalización. Se muestra el personaje predeterminado y los seis juegos permanecen disponibles.
 
 `GET /api/profile` devuelve `user` y `profiles`. Un juego puede leer `profiles.find(p => p.active)?.avatar`. Los identificadores son `flor_rosa`, `flor_2`, `flor`, `huevo`, `manzana` y `zana`. `flor_2` es azul y `flor` amarilla.
 
@@ -105,8 +105,16 @@ Origen: repositorio ITASO, versión `68e0af9`, más los ajustes locales de color
 | Palabras para cuidar | `/jugar/sopa/index.html` |
 | Un día de decisiones | `/jugar/decisiones/index.html` |
 
-La copia de juegos aquí incluida excluye el registro y la cuenta de demostración. El historial opcional de Decisiones sigue siendo local al navegador; no es progreso sincronizado con el perfil.
+La copia de juegos aquí incluida excluye el registro y la cuenta de demostración. El historial opcional de Decisiones solo se guarda localmente con sesión y perfil activo, separado por perfil; no se sincroniza con el servidor. Las partidas de visitantes son temporales y no recuperan ni guardan historial.
 
 La publicación de GitHub Pages se conserva durante esta transición. El sitio completo se publica mediante Sites con servidor y D1. No reemplazar el flujo de Pages por el servidor de esta aplicación.
 
 Comprobaciones: `node tests/integration.cjs` verifica los seis accesos, el regreso, pausa, navegación y tamaños móviles contra la vista previa local. `node tests/accounts.cjs` verifica únicamente la base local y el acceso ficticio de desarrollo, nunca una cuenta real de producción. Necesitan Playwright y Chrome disponibles en el entorno de pruebas.
+
+## Acceso público y visitantes
+
+El sitio es accesible sin sesión. Inicio, Aprende, Juegos, Nosotros, Foro (lectura), Noticias y Eventos (consulta) son públicos. Cuenta incluye «Continuar sin cuenta».
+
+Sin sesión no se ofrece cambio de avatar, progreso personal ni recompensas. Los juegos mantienen su marcador temporal, sin acumular puntos en un perfil. Cambiar el avatar mediante WebMCP también requiere sesión. Comentar o guardar eventos siguen requiriendo identidad.
+
+`node tests/guests.cjs` comprueba la experiencia anónima, el marcador temporal y la ausencia de guardado de decisiones para visitantes.

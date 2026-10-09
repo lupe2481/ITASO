@@ -1,11 +1,16 @@
-(function(){
+(async function(){
 'use strict';
-const D=window.DecisionData,E=window.DecisionEngine,$=id=>document.getElementById(id),key='itaso-decisiones-v2';
+const D=window.DecisionData,E=window.DecisionEngine,$=id=>document.getElementById(id);
+let key=null;
 let state=E.fresh();
-try{localStorage.removeItem('itaso-decisiones-v1');state=E.restore(localStorage.getItem(key));}catch{$('storage-note').hidden=false;}
+$('start-game').disabled=true;
+try{const response=await fetch('/api/profile',{cache:'no-store',signal:AbortSignal.timeout(3000)});if(response.ok){const data=await response.json();const profile=data.user&&data.profiles.find(p=>p.active);if(profile)key='itaso-decisiones-profile-'+profile.id;}}catch{}
+if(key){try{state=E.restore(localStorage.getItem(key));}catch{$('storage-note').hidden=false;}}
+else{$('storage-note').hidden=false;$('storage-note').textContent='El marcador y tus decisiones son temporales. No se guardan al salir ni se acumulan como recompensas.';}
+$('start-game').disabled=false;
 let day=E.activeDay(state),period=state.days[day].findIndex(n=>n===null),view='play',previousView='play';
 if(period<0)period=2;
-function save(){try{localStorage.setItem(key,JSON.stringify(state));}catch{$('storage-note').hidden=false;}}
+function save(){if(!key)return;try{localStorage.setItem(key,JSON.stringify(state));}catch{$('storage-note').hidden=false;}}
 function el(tag,text,className){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;}
 function focus(id){$(id).focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
 function show(name){view=name;$('pause').hidden=name!=='play';for(const n of ['intro','play','end','history'])$(n+'-view').hidden=n!==name;$('juego').classList.toggle('is-history',name==='history');}
