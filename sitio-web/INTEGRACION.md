@@ -16,11 +16,11 @@ Comprobación de tipos: `npx tsc --noEmit`.
 
 ## Integrar los juegos
 
-Los seis botones de `app/game-links.ts` tienen `href: null` y muestran «Próximamente». Esta entrega no conecta ni incluye los juegos del repositorio. Para integrarlos después, asignar la ruta de cada juego en ese archivo. El selector de avatar se conserva funcional.
+Los seis botones de `app/game-links.ts` abren los juegos incluidos en `public/jugar/`. Los juegos conservan sus motores originales, recursos y navegación entre ellos; Inicio vuelve a `/` y el menú Juegos incluye el regreso a `/juegos`. `public/jugar/site-nav.js` consulta la cuenta del sitio, sin usar las cuentas de demostración anteriores. El selector de avatar funciona en el sitio; todavía no cambia los personajes dentro de las partidas.
 
 La selección de avatar está en `app/sections.tsx`, componente `Games`. Los originales están en `public/avatars/`. Al abrir «Cambiar avatar» aparecen las seis opciones; la seleccionada tiene fondo gris y su SVG se muestra en escala de grises. El personaje principal conserva su color.
 
-Con sesión, el avatar se guarda en el perfil activo. Sin sesión, se puede probar durante la visita y se informa que no se guarda al salir.
+Con sesión, el avatar se guarda en el perfil activo. Sin sesión no se ofrece personalización. Se muestra el personaje predeterminado y los seis juegos permanecen disponibles.
 
 `GET /api/profile` devuelve `user` y `profiles`. Un juego puede leer `profiles.find(p => p.active)?.avatar`. Los identificadores son `flor_rosa`, `flor_2`, `flor`, `huevo`, `manzana` y `zana`. `flor_2` es azul y `flor` amarilla.
 
@@ -55,7 +55,7 @@ Aplicar la migración una sola vez a una base nueva. El código de la API es esp
 
 ## Límites y contenido pendiente
 
-- Los juegos están pendientes de integración, incluidas sus puntuaciones con las recompensas. Las recompensas leen los puntos reales del perfil; una cuenta sin puntos muestra cero.
+- Los seis juegos están conectados. Sus puntuaciones todavía no se acumulan en las recompensas. La web informa este límite; no se asignan puntos de prueba a las cuentas.
 - Los botones «Aprende más» muestran el texto introductorio y acceso al foro. El prototipo no incluía destinos ni artículos completos para esos botones.
 - El pie incluye los enlaces oficiales de Instagram, Facebook y TikTok proporcionados por ITASO.
 - Guardar un evento no reserva un lugar ni envía mensajes.
@@ -85,9 +85,36 @@ La navegación móvil se despliega con Menú. Las tarjetas, calendarios, formula
 
 Layouts móviles editables: https://www.figma.com/design/3LVBbtwSZFOQiYZ0YKTa3H?node-id=768-2 . En Figma se utilizaron Lilita One y Nunito Sans porque la conexión no dispone de Hansol/Avenir; la web mantiene sus fuentes originales.
 
-Todos los encabezados móviles usan la fuente Hansol incluida en la web, hasta 760 px. La versión base se verificó con compilación y nueve rutas públicas a 390 px sin desbordamiento horizontal. Esta entrega restaura los seis botones sin enlaces. El logo superior utiliza `public/logoo.svg`.
+Todos los encabezados móviles usan la fuente Hansol incluida en la web, hasta 760 px. La versión base se verificó con compilación y nueve rutas públicas a 390 px sin desbordamiento horizontal. Los seis botones ahora abren sus juegos correspondientes. El logo superior utiliza `public/logoo.svg`.
 
-Estado de publicación: los cambios están en este código local. La publicación del sitio existente quedó bloqueada por la revisión automática de aprobación de la sesión; no se ha actualizado producción.
+La integración del 9 de octubre se prepara en una publicación nueva de la cuenta actual, autorizada por la propietaria. La base nueva no contiene perfiles ni conversaciones del alojamiento anterior.
 
 ## Entrega para GitHub
 Esta carpeta contiene el sitio completo, separado de los juegos de la raíz del repositorio. Subir el código no publica esta aplicación en GitHub Pages: requiere un servidor compatible con Cloudflare Workers/D1 para las cuentas y datos. No se modifica el flujo de publicación existente de los juegos.
+
+## Integración de los juegos · 9 de octubre de 2026
+
+Origen: repositorio ITASO, versión `68e0af9`, más los ajustes locales de color conservados.
+
+| Juego | Ruta |
+| --- | --- |
+| Duelo de bocados | `/jugar/index.html` |
+| Una noche tranquila | `/jugar/sueno/index.html` |
+| Llena tu canasta | `/jugar/atrapar-comida/index.html` |
+| Memoragua | `/jugar/memoragua/index.html` |
+| Palabras para cuidar | `/jugar/sopa/index.html` |
+| Un día de decisiones | `/jugar/decisiones/index.html` |
+
+La copia de juegos aquí incluida excluye el registro y la cuenta de demostración. El historial opcional de Decisiones solo se guarda localmente con sesión y perfil activo, separado por perfil; no se sincroniza con el servidor. Las partidas de visitantes son temporales y no recuperan ni guardan historial.
+
+La publicación de GitHub Pages se conserva durante esta transición. El sitio completo se publica mediante Sites con servidor y D1. No reemplazar el flujo de Pages por el servidor de esta aplicación.
+
+Comprobaciones: `node tests/integration.cjs` verifica los seis accesos, el regreso, pausa, navegación y tamaños móviles contra la vista previa local. `node tests/accounts.cjs` verifica únicamente la base local y el acceso ficticio de desarrollo, nunca una cuenta real de producción. Necesitan Playwright y Chrome disponibles en el entorno de pruebas.
+
+## Acceso público y visitantes
+
+El sitio es accesible sin sesión. Inicio, Aprende, Juegos, Nosotros, Foro (lectura), Noticias y Eventos (consulta) son públicos. Cuenta incluye «Continuar sin cuenta».
+
+Sin sesión no se ofrece cambio de avatar, progreso personal ni recompensas. Los juegos mantienen su marcador temporal, sin acumular puntos en un perfil. Cambiar el avatar mediante WebMCP también requiere sesión. Comentar o guardar eventos siguen requiriendo identidad.
+
+`node tests/guests.cjs` comprueba la experiencia anónima, el marcador temporal y la ausencia de guardado de decisiones para visitantes.
