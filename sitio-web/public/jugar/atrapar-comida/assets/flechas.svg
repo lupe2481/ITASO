@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="uuid-578f26df-a374-489b-ae87-c431a2411568" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.48 40.87">
+  <defs>
+    <style>
+      .uuid-64113ea2-7ffb-468e-ae6d-5c63bb264f1d {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="uuid-0feb7e70-9cbe-4f88-91f8-e6c1e27a6f55" data-name="Capa 1">
+    <g>
+      <g>
+        <rect x="58.74" y="0" width="42.74" height="40.87" rx="5.66" ry="5.66" transform="translate(160.22 40.87) rotate(-180)"/>
+        <path class="uuid-64113ea2-7ffb-468e-ae6d-5c63bb264f1d" d="M66.12,29.53v-13.59c0-.17.18-.28.33-.21l13.59,6.71c.17.08.17.32,0,.41l-13.59,6.88c-.15.08-.33-.03-.33-.2Z"/>
+      </g>
+      <g>
+        <rect y="0" width="42.74" height="40.87" rx="5.66" ry="5.66"/>
+        <path class="uuid-64113ea2-7ffb-468e-ae6d-5c63bb264f1d" d="M35.36,29.53v-13.59c0-.17-.18-.28-.33-.21l-13.59,6.71c-.17.08-.17.32,0,.41l13.59,6.88c.15.08.33-.03.33-.2Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

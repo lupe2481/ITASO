@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duelo de bocados · Itaso</title>
+<meta name="description" content="Elige bien lo que comes y atrápalo rápido. Un juego para dos personas, una mesa y 30 segundos.">
+<link rel="icon" href="assets/tab.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/Hansol.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/avenir-next-regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="styles.css?v=alimentos-2">
+<link rel="stylesheet" href="pause.css?v=1"><link rel="stylesheet" href="/jugar/site-nav.css"></head>
+<body>
+<header class="site-header"><img class="logo" src="assets/logo.svg" alt="Itaso mx" width="144" height="48"><nav aria-label="Navegación principal"><a href="/">Inicio</a><button class="nav-link" id="learn-nav">Aprende</button><details class="games-menu"><summary>Juegos</summary><div><a href="/juegos">Volver a todos los juegos</a><a href="index.html" aria-current="page">Reacción rápida</a><a href="sopa/index.html">Sopa de letras</a><a href="decisiones/index.html">Un día de decisiones</a><a href="atrapar-comida/index.html">Llena tu canasta</a><a href="sueno/index.html">Una noche tranquila</a><a href="memoragua/index.html">Memoragua</a><a data-account-link href="/cuenta">Mi cuenta</a></div></details><a class="desktop-nav" href="/nosotros">Nosotros</a><a class="desktop-nav" href="/foro">Comunidad</a><a class="login account-link" data-account-link href="/cuenta">Iniciar sesión</a></nav></header>
+<main id="juego" tabindex="-1">
+<section class="game-board" aria-label="Juego de reacción rápida">
+<img class="mat art" src="assets/mantel.svg" alt="">
+<img class="plate art" src="assets/plato.svg" alt="">
+<aside class="instructions"><strong>Elige bien lo que comes y atrápalo ¡rápido!</strong><p>Los snacks con fruta o verdura suman. Jugos, refrescos y dulces: poca cantidad y poca frecuencia.</p><div class="rules"><span>Saludables <b>+10</b></span><span>Ocasionales <b>−5</b></span></div></aside>
+<div class="player player-one"><h2>JUGADOR 1</h2><p><span id="score-0">0</span> pts</p></div>
+<div class="player player-two"><h2>JUGADOR 2</h2><p><span id="score-1">0</span> pts</p></div>
+<img id="hand-0" class="hand hand-one art" src="assets/jugador-1.svg" alt="">
+<img id="hand-1" class="hand hand-two art" src="assets/jugador-2.svg" alt="">
+<div class="food-slot" id="food-slot" hidden><img id="food-image" alt=""><span id="food-name"></span></div>
+<div class="start-card" id="start-card"><h1>Duelo<br>de bocados</h1><p class="start-intro">¡Compitan entre dos personas en el mismo teclado!</p><p class="start-rules">Presionen su tecla para atrapar alimentos saludables (+10). Dejen pasar jugos, refrescos y dulces (−5): son para consumir poco y con poca frecuencia.</p><p class="start-duration"><strong>¡Tienen 30 segundos!</strong></p><button class="pink" id="start" disabled>Cargando…</button><small>Jugador 1: Tab &nbsp; | &nbsp; Jugador 2: Enter</small></div>
+<div class="countdown" id="countdown" aria-live="assertive" hidden></div>
+<p class="feedback" id="feedback" aria-live="polite"></p>
+<button class="catch catch-one" id="catch-0" aria-label="Atrapar para Jugador 1, tecla Tab" disabled><img src="assets/tab.svg" alt=""><span>Tab</span></button>
+<button class="catch catch-two" id="catch-1" aria-label="Atrapar para Jugador 2, tecla Enter" disabled><img src="assets/enter.svg" alt=""><span>Enter</span></button>
+<div class="timer" role="timer" aria-label="Tiempo restante"><span id="timer">00:30</span></div>
+<button id="pause" class="pause-icon" type="button" aria-label="Pausar juego" aria-haspopup="dialog" aria-controls="pause-dialog" hidden><span aria-hidden="true"></span></button>
+</section>
+<section id="results" class="results" aria-labelledby="winner" hidden>
+<h1 id="winner" tabindex="-1"></h1><div class="result-columns" id="result-columns"></div>
+<p class="tip" id="tip">Elige fruta entera, verduras y agua simple con más frecuencia. Los jugos, refrescos y dulces son para consumir en pequeñas cantidades y con poca frecuencia.</p>
+<div class="result-actions"><button class="pink" id="discover">Descubre más</button><button class="pink" id="replay">Volver a jugar</button></div>
+</section>
+</main>
+<dialog id="learn-dialog" aria-labelledby="learn-title"><button class="close-dialog" aria-label="Cerrar">×</button><h2 id="learn-title">Elegir bien, todos los días</h2><p>La variedad importa. Las frutas y verduras aportan fibra, vitaminas y minerales; el agua es una buena opción para acompañar tus comidas.</p><div class="learn-foods"><img src="assets/alimentos/nuevo-platanos.svg" alt="Plátanos"><img src="assets/alimentos/nuevo-zanahoria.svg" alt="Zanahoria"><img src="assets/alimentos/nuevo-vaso-con-agua.svg" alt="Agua"></div><h3>Fruta entera y agua simple</h3><p>Prefiere la fruta entera para aprovechar su fibra y el agua simple para acompañarla. Consume jugos, refrescos y dulces en pequeñas cantidades y con poca frecuencia.</p><p>En este juego, los snacks que incluyen fruta o verdura suman puntos. También importa cómo se preparan: modera las coberturas, la sal, el azúcar y las porciones.</p><p class="small">Los puntos son una regla del juego. Una alimentación saludable depende del conjunto de tus hábitos, la variedad y tus necesidades.</p><a href="https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer">Más sobre alimentación saludable · OMS ↗</a></dialog>
+
+<dialog id="pause-dialog" class="itaso-pause" aria-labelledby="pause-title" aria-describedby="pause-description">
+<h2 id="pause-title">¡Una pequeña pausa!</h2>
+<p id="pause-description"><strong>El juego está en pausa.</strong><br>Continúa cuando estés listo.</p>
+<p class="pause-stat">Tiempo restante<strong id="pause-time">00:30</strong></p>
+<p id="pause-detail" class="pause-detail"></p>
+<div class="pause-actions"><button id="resume" type="button">Continuar</button><button id="pause-restart" type="button">Reiniciar</button></div>
+</dialog>
+<script src="game-engine.js"></script><script src="reaction-foods.js?v=1"></script><script src="app.js?v=alimentos-2"></script>
+<script src="/jugar/site-nav.js" defer></script></body></html>
